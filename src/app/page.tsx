@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Lenis from "lenis";
 import { ArrowRight, Target, MapPin, Phone, Clock, ShieldCheck, Factory, Cpu, Camera, Plane, PenTool } from "lucide-react";
 import Image from "next/image";
@@ -26,12 +26,12 @@ export default function Home() {
     return () => lenis.destroy();
   }, []);
 
-  const fadeUpVariant = {
+  const fadeUpVariant: Variants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
