@@ -50,14 +50,14 @@ export default function Home() {
 
   const products = [
     { name: "Camera Drones", icon: <Camera className="w-5 h-5" /> },
-    { name: "FPV & Racing", icon: <Plane className="w-5 h-5" /> },
-    { name: "Professional", icon: <ShieldCheck className="w-5 h-5" /> },
-    { name: "Agricultural", icon: <Target className="w-5 h-5" /> },
-    { name: "Survey & Mapping", icon: <MapPin className="w-5 h-5" /> },
-    { name: "Industrial & Enterprise", icon: <Factory className="w-5 h-5" /> },
-    { name: "Hobby & Kids", icon: <ArrowRight className="w-5 h-5" /> },
-    { name: "Training", icon: <Cpu className="w-5 h-5" /> },
-    { name: "Custom Built", icon: <PenTool className="w-5 h-5" /> },
+    { name: "FPV & Racing Drones", icon: <Plane className="w-5 h-5" /> },
+    { name: "Professional Drones", icon: <ShieldCheck className="w-5 h-5" /> },
+    { name: "Agricultural Drones", icon: <Target className="w-5 h-5" /> },
+    { name: "Survey & Mapping Drones", icon: <MapPin className="w-5 h-5" /> },
+    { name: "Industrial & Enterprise Drones", icon: <Factory className="w-5 h-5" /> },
+    { name: "Hobby & Kids Drones", icon: <ArrowRight className="w-5 h-5" /> },
+    { name: "Training Drones", icon: <Cpu className="w-5 h-5" /> },
+    { name: "Custom Built Drones", icon: <PenTool className="w-5 h-5" /> },
   ];
 
   const services = [
@@ -73,11 +73,11 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
-          <a href="#" className="flex items-center w-24 h-16 sm:w-32 sm:h-20">
+          <a href="#" className="flex items-center h-16 w-32 sm:w-48">
             <img 
               src="/logo-removebg-preview.png" 
               alt="Dronebhai Logo" 
-              className="w-full h-full object-contain object-left scale-[1.2] sm:scale-[1.4] origin-left"
+              className="h-10 sm:h-14 w-auto max-w-none object-contain object-left -ml-2 sm:-ml-4 origin-left"
             />
           </a>
           <div className="hidden lg:flex gap-10 text-sm font-medium text-gray-500">
