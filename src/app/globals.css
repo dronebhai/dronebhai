@@ -1,52 +1,271 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #009688;
-  --primary-foreground: #ffffff;
-}
+/* ============================================================
+   DRONEBHAI DESIGN SYSTEM — Tailwind v4 CSS-based config
+   Migrated from Stitch-exported tailwind.config (v3 theme.extend)
+   ============================================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --font-sans: var(--font-oxanium);
-  --font-mono: var(--font-geist-mono);
+  /* --- Color Palette (Material You / Stitch export) --- */
+  --color-primary:                  #00685e;
+  --color-on-primary:               #ffffff;
+  --color-primary-container:        #008377;
+  --color-on-primary-container:     #f4fffb;
+  --color-primary-fixed:            #85f6e5;
+  --color-primary-fixed-dim:        #67d9c9;
+  --color-on-primary-fixed:         #00201c;
+  --color-on-primary-fixed-variant: #005048;
+  --color-inverse-primary:          #67d9c9;
+  --color-surface-tint:             #006a60;
+
+  --color-secondary:                #4c56af;
+  --color-on-secondary:             #ffffff;
+  --color-secondary-container:      #959efd;
+  --color-on-secondary-container:   #27308a;
+  --color-secondary-fixed:          #e0e0ff;
+  --color-secondary-fixed-dim:      #bdc2ff;
+  --color-on-secondary-fixed:       #000767;
+  --color-on-secondary-fixed-variant: #343d96;
+
+  --color-tertiary:                 #595c5e;
+  --color-on-tertiary:              #ffffff;
+  --color-tertiary-container:       #727576;
+  --color-on-tertiary-container:    #fbfdfe;
+  --color-tertiary-fixed:           #e1e3e4;
+  --color-tertiary-fixed-dim:       #c4c7c8;
+  --color-on-tertiary-fixed:        #191c1d;
+  --color-on-tertiary-fixed-variant: #444748;
+
+  --color-background:               #f4faff;
+  --color-on-background:            #111d23;
+
+  --color-surface:                  #f4faff;
+  --color-on-surface:               #111d23;
+  --color-surface-variant:          #d7e4ec;
+  --color-on-surface-variant:       #3d4947;
+  --color-surface-bright:           #f4faff;
+  --color-surface-dim:              #cfdce4;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low:    #e9f6fd;
+  --color-surface-container:        #e3f0f8;
+  --color-surface-container-high:   #ddeaf2;
+  --color-surface-container-highest: #d7e4ec;
+
+  --color-inverse-surface:          #263238;
+  --color-inverse-on-surface:       #e6f3fb;
+
+  --color-outline:                  #6d7a77;
+  --color-outline-variant:          #bcc9c6;
+
+  --color-error:                    #ba1a1a;
+  --color-on-error:                 #ffffff;
+  --color-error-container:          #ffdad6;
+  --color-on-error-container:       #93000a;
+
+  /* --- Typography --- */
+  /* Headline / Label / Button → Space Grotesk */
+  /* Body → Inter */
+  --font-headline:  var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  --font-body:      var(--font-inter), "Inter", sans-serif;
+  /* Keep legacy aliases from old layout */
+  --font-sans:      var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  --font-mono:      ui-monospace, "Geist Mono", monospace;
+
+  /* --- Font Size Scale (Stitch design tokens) --- */
+  --font-size-headline-lg:        40px;
+  --line-height-headline-lg:      48px;
+  --letter-spacing-headline-lg:   -0.02em;
+
+  --font-size-headline-lg-mobile: 32px;
+  --line-height-headline-lg-mobile: 38px;
+  --letter-spacing-headline-lg-mobile: -0.01em;
+
+  --font-size-headline-md:        24px;
+  --line-height-headline-md:      32px;
+
+  --font-size-label-md:           14px;
+  --line-height-label-md:         20px;
+
+  --font-size-eyebrow:            12px;
+  --line-height-eyebrow:          16px;
+  --letter-spacing-eyebrow:       0.1em;
+
+  --font-size-body-lg:            18px;
+  --line-height-body-lg:          28px;
+
+  --font-size-body-md:            16px;
+  --line-height-body-md:          24px;
+
+  --font-size-button:             16px;
+  --line-height-button:           24px;
+  --letter-spacing-button:        0.02em;
+
+  /* --- Spacing (Stitch design tokens) --- */
+  --spacing-base:                 8px;
+  --spacing-gutter:               16px;
+  --spacing-container-margin:     20px;
+  --spacing-section-gap-mobile:   64px;
+  --spacing-section-gap-desktop:  120px;
+
+  /* --- Border Radius --- */
+  --radius:    0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================================
+   Custom utility classes for Stitch font semantic scale
+   (Tailwind v4: use @utility instead of @layer utilities)
+   ============================================================ */
+
+@layer utilities {
+  /* Headline LG */
+  .text-headline-lg {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
+  .font-headline-lg { font-family: var(--font-headline); }
+
+  /* Headline LG Mobile */
+  .text-headline-lg-mobile {
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  .font-headline-lg-mobile { font-family: var(--font-headline); }
+
+  /* Headline MD */
+  .text-headline-md {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+  .font-headline-md { font-family: var(--font-headline); }
+
+  /* Label MD */
+  .text-label-md {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+  .font-label-md { font-family: var(--font-headline); }
+
+  /* Eyebrow */
+  .text-eyebrow {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  .font-eyebrow { font-family: var(--font-headline); }
+
+  /* Body LG */
+  .text-body-lg {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+  .font-body-lg { font-family: var(--font-body); }
+
+  /* Body MD */
+  .text-body-md {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  .font-body-md { font-family: var(--font-body); }
+
+  /* Button */
+  .text-button {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+  }
+  .font-button { font-family: var(--font-headline); }
+
+  /* Spacing tokens as utilities */
+  .px-gutter { padding-left: 16px; padding-right: 16px; }
+  .py-section-gap-mobile { padding-top: 64px; padding-bottom: 64px; }
+  .py-section-gap-desktop { padding-top: 120px; padding-bottom: 120px; }
+  .pb-section-gap-mobile { padding-bottom: 64px; }
+  .pb-section-gap-desktop { padding-bottom: 120px; }
+  .mb-section-gap-mobile { margin-bottom: 64px; }
+  .mb-section-gap-desktop { margin-bottom: 120px; }
+  .pt-section-gap-mobile { padding-top: 64px; }
+  .pt-section-gap-desktop { padding-top: 120px; }
 }
 
+/* ============================================================
+   Global Background Patterns (Stitch HUD grid aesthetic)
+   ============================================================ */
+
+.hud-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 104, 94, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 104, 94, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, #e0e0e0 1px, transparent 1px),
+    linear-gradient(to bottom, #e0e0e0 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ============================================================
+   Material Symbols Outlined — font-variation default
+   ============================================================ */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ============================================================
+   Scrollbar utilities
+   ============================================================ */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================================
+   Lenis smooth scroll compatibility
+   ============================================================ */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* ============================================================
+   Base
+   ============================================================ */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-body);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Lenis recommended CSS */
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
+::selection {
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
 }

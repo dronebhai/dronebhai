@@ -1,30 +1,62 @@
 import type { Metadata } from "next";
-import { Oxanium, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import MobileBottomBar from "@/components/MobileBottomBar";
 
-const oxanium = Oxanium({
-  variable: "--font-oxanium",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
   title: "Dronebhai | Premium Drone Sales, Custom Manufacturing & DJI Services",
-  description: "Dronebhai offers high-quality drone sales, custom drone manufacturing, and expert DJI drone servicing. Explore our wide range of kids, hobby, racing, agricultural, and enterprise drones.",
-  keywords: "drone, drone sales, custom drones, DJI service, DJI repair, agricultural drones, FPV drones, drone manufacturing, Dronebhai, Robuzta Techlabs",
+  description:
+    "Dronebhai offers high-quality drone sales, custom drone manufacturing, and expert DJI drone servicing. Explore our wide range of kids, hobby, racing, agricultural, and enterprise drones.",
+  keywords:
+    "drone, drone sales, custom drones, DJI service, DJI repair, agricultural drones, FPV drones, drone manufacturing, Dronebhai, Robuzta Techlabs",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
-      className={`${oxanium.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        {/* Material Symbols Outlined — required for Stitch icon system */}
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        />
+      </head>
+      <body className="min-h-screen flex flex-col bg-background text-on-background font-body-md antialiased relative pb-[72px] md:pb-0">
+        <Navbar />
+        <div className="flex-grow pt-16">{children}</div>
+        <Footer />
+        <MobileBottomBar />
+      </body>
     </html>
   );
 }
