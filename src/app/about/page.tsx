@@ -84,12 +84,16 @@ export default function AboutPage() {
           </div>
 
           {/* Right — Hero Image */}
-          <div className="rounded-xl overflow-hidden border border-outline-variant/30 bg-surface-container-low shadow-sm">
+          <div className="rounded-2xl overflow-hidden border border-outline-variant/40 bg-surface-container shadow-lg relative group">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp0tGvLBl-LZPi6O_LvSi_EfBJk7X-1HcFvSx5Ywi5yaTCqZkBpLSoeMuHCJqsqBFI8PJKvgEbwbXGi4yivtPXbFBJXS_vVzCnRLBfLvTzFq7uNM5xWwJrVJB8FWUiXJ58IXxPi_VpgGQT23e0i3RHN4R7nDGXsNi1MjGzLOhJgbsNVRVH8TwIOkxRaJN2xLFp5Av4hFB_cWQjjwwKqjUDpJEtRhR4fDXF9vV7oXiirVb2_GUedYrg"
-              alt="Dronebhai technician performing precision repairs in a clean-room environment"
-              className="w-full h-80 md:h-[480px] object-cover"
+              src="/images/about-lab.jpg"
+              alt="Dronebhai aerospace engineer performing precision drone repairs in our Ahmedabad cleanroom facility"
+              className="w-full h-80 md:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700"
             />
+            <div className="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-3 rounded-xl border border-outline-variant/30 text-xs text-on-surface flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-base">verified</span>
+              <span>Ahmedabad Drone R&amp;D &amp; Precision Cleanroom Lab</span>
+            </div>
           </div>
         </div>
       </section>

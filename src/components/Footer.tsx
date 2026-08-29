@@ -1,18 +1,33 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-container w-full border-t border-outline-variant">
-      <div className="w-full py-section-gap-mobile md:py-section-gap-desktop px-gutter max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 font-body-md text-body-md text-on-surface-variant">
+    <footer className="bg-surface-container w-full border-t border-outline-variant/50">
+      <div className="w-full py-12 md:py-16 px-gutter max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 font-body-md text-body-md text-on-surface-variant">
         {/* Brand */}
-        <div>
+        <div className="flex flex-col items-start">
           <Link
             href="/"
-            className="font-headline-md text-headline-md text-primary font-bold tracking-tighter block mb-4"
+            className="flex items-center gap-3 mb-3"
           >
-            DRONEBHAI
+            <Image
+              src="/logo-removebg-preview.png"
+              alt="Dronebhai Emblem"
+              width={40}
+              height={40}
+              className="h-10 w-10 object-contain"
+            />
+            <span className="font-headline-md text-2xl font-bold tracking-tighter text-primary">
+              DRONEBHAI
+            </span>
           </Link>
-          <p className="text-sm opacity-80">Your Drone Partners in Precision.</p>
+          <p className="text-sm opacity-90 leading-relaxed max-w-xs">
+            Your Drone Partners in Precision. Authorized DJI Service Centre, Custom UAV Engineering &amp; Enterprise Drone Sales.
+          </p>
+          <div className="mt-3 text-xs text-primary font-semibold">
+            Robuzta Techlabs Pvt. Ltd.
+          </div>
         </div>
 
         {/* Branches */}
