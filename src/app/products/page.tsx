@@ -1,16 +1,74 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { productCategories } from "@/lib/data/categories";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Products | Dronebhai — Explore 16 Drone Categories",
+  title: "All Drone Categories & UAV Catalog | Dronebhai India",
   description:
-    "Browse Dronebhai's full lineup of 16 drone categories — from kids and hobby drones to professional cinematic platforms, agricultural systems, and custom-built enterprise solutions.",
+    "Explore Dronebhai's full catalog of 16 precision drone categories — including 4K camera drones, agricultural sprayers, FPV racing drones, survey LiDAR systems, and custom builds.",
+  alternates: {
+    canonical: "/products",
+  },
+  openGraph: {
+    title: "All Drone Categories & UAV Catalog | Dronebhai India",
+    description:
+      "Explore Dronebhai's full catalog of 16 precision drone categories — including 4K camera drones, agricultural sprayers, FPV racing drones, survey LiDAR systems, and custom builds.",
+    url: "https://dronebhai.com/products",
+    siteName: "Dronebhai",
+    images: [
+      {
+        url: "/images/hero-drone-flagship.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dronebhai Complete Products Fleet",
+      },
+    ],
+  },
+};
+
+const productsStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://dronebhai.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Products",
+          item: "https://dronebhai.com/products",
+        },
+      ],
+    },
+    {
+      "@type": "ItemList",
+      name: "Dronebhai Drone Fleet & Categories",
+      description: "Complete catalog of commercial, industrial, and hobby drones.",
+      numberOfItems: productCategories.length,
+      itemListElement: productCategories.map((cat, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: cat.label,
+        url: `https://dronebhai.com/products/${cat.slug}`,
+        description: cat.description,
+        image: cat.heroImageUrl,
+      })),
+    },
+  ],
 };
 
 export default function ProductsPage() {
   return (
     <main className="bg-background text-on-background">
+      <JsonLd data={productsStructuredData} />
+      
       {/* ── Page Header ───────────────────────────────────── */}
       <section className="pt-10 md:pt-20 pb-10 md:pb-16 px-gutter max-w-7xl mx-auto relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none" />
@@ -20,11 +78,10 @@ export default function ProductsPage() {
             Complete Inventory
           </span>
           <h1 className="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background mb-4">
-            All Products.
+            All Drone Categories.
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-            Sixteen categories of precision aerial equipment — from recreational
-            to enterprise-grade.
+            Sixteen specialized categories of precision aerial equipment — from beginner recreational systems to certified enterprise UAVs.
           </p>
         </div>
       </section>
@@ -42,7 +99,7 @@ export default function ProductsPage() {
               <div className="aspect-video relative bg-surface-container-low overflow-hidden">
                 <img
                   src={cat.heroImageUrl}
-                  alt={cat.heroImageAlt}
+                  alt={cat.heroImageAlt || `${cat.label} - Dronebhai`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
                 />
                 {/* Eyebrow badge */}

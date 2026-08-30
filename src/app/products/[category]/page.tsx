@@ -5,6 +5,7 @@ import {
   productCategories,
   getCategoryBySlug,
 } from "@/lib/data/categories";
+import JsonLd from "@/components/JsonLd";
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -18,9 +19,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const cat = getCategoryBySlug(category);
   if (!cat) return { title: "Not Found | Dronebhai" };
+
   return {
-    title: `${cat.label} | Dronebhai — Sales, Custom Builds & Service`,
-    description: cat.description,
+    title: `${cat.label} — Buy, Custom Builds & Service | Dronebhai India`,
+    description: `${cat.description} Explore certified models, high-performance flight specs, genuine parts, and custom aerospace engineering.`,
+    alternates: {
+      canonical: `/products/${cat.slug}`,
+    },
+    openGraph: {
+      title: `${cat.label} | Dronebhai Drone Store India`,
+      description: cat.description,
+      url: `https://dronebhai.com/products/${cat.slug}`,
+      siteName: "Dronebhai",
+      images: [
+        {
+          url: cat.heroImageUrl,
+          alt: cat.heroImageAlt || cat.label,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cat.label} | Dronebhai`,
+      description: cat.description,
+      images: [cat.heroImageUrl],
+    },
   };
 }
 
@@ -30,8 +53,64 @@ export default async function CategoryPage({ params }: Props) {
 
   if (!cat) notFound();
 
+  const categoryStructuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dronebhai.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Products",
+            item: "https://dronebhai.com/products",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: cat.label,
+            item: `https://dronebhai.com/products/${cat.slug}`,
+          },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        name: `${cat.label} Fleet — Dronebhai`,
+        description: cat.description,
+        numberOfItems: cat.products.length,
+        itemListElement: cat.products.map((p, idx) => ({
+          "@type": "Product",
+          position: idx + 1,
+          name: p.name,
+          description: p.description || p.tagline,
+          image: p.imageUrl,
+          brand: {
+            "@type": "Brand",
+            name: p.eyebrow || "Dronebhai",
+          },
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "INR",
+            price: p.priceRange?.replace(/[^0-9]/g, "") || "9999",
+            availability: "https://schema.org/InStock",
+            seller: {
+              "@id": "https://dronebhai.com/#organization",
+            },
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <main className="bg-background text-on-background min-h-screen">
+      <JsonLd data={categoryStructuredData} />
       {/* ── Hero Banner ───────────────────────────────────── */}
       <section className="relative w-full min-h-[480px] md:min-h-[540px] flex items-center justify-center text-center overflow-hidden py-16">
         {/* Background image */}

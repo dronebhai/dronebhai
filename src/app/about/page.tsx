@@ -1,10 +1,68 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "About Us | Dronebhai — Your Drone Partners in Precision",
+  title: "About Us | Dronebhai — India's Premier Drone Engineering & Service Labs",
   description:
-    "Learn about Dronebhai — our story, mission, and our two state-of-the-art labs in Ahmedabad. Authorized DJI service centre and custom drone manufacturer.",
+    "Learn about Dronebhai's aerospace legacy since 2016. Discover our cleanroom drone labs in Ahmedabad, custom UAV manufacturing capabilities, and DJI authorized repair certifications.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Dronebhai — Precision Drone Labs & Engineering",
+    description:
+      "Ahmedabad's leading drone specialists. Authorized DJI repair centre and custom industrial drone manufacturers.",
+    url: "https://dronebhai.com/about",
+    siteName: "Dronebhai",
+    images: [
+      {
+        url: "/images/about-lab.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dronebhai Drone Engineering Lab",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Dronebhai — Precision Drone Labs",
+    description: "Learn about Dronebhai's certified DJI repair labs and custom UAV manufacturing.",
+    images: ["/images/about-lab.jpg"],
+  },
+};
+
+const aboutStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://dronebhai.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "About Us",
+          item: "https://dronebhai.com/about",
+        },
+      ],
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://dronebhai.com/about/#webpage",
+      url: "https://dronebhai.com/about",
+      name: "About Dronebhai",
+      description: "India's precision drone laboratory, manufacturer, and authorized DJI service hub.",
+      mainEntity: {
+        "@id": "https://dronebhai.com/#organization",
+      },
+    },
+  ],
 };
 
 const stats = [
@@ -44,6 +102,7 @@ const values = [
 export default function AboutPage() {
   return (
     <main className="bg-background text-on-background">
+      <JsonLd data={aboutStructuredData} />
       {/* ── Hero ──────────────────────────────────────────── */}
       <section className="relative pt-16 md:pt-24 pb-section-gap-mobile md:pb-section-gap-desktop px-gutter max-w-7xl mx-auto overflow-hidden">
         {/* Background decorative grid */}

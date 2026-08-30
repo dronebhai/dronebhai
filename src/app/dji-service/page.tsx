@@ -1,11 +1,109 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { djiModels, repairTypes } from "@/lib/data/dji-service";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "DJI Service Hub | Dronebhai — Authorized DJI Repair Centre in Ahmedabad",
+  title: "DJI Drone Repair & Service Center in Ahmedabad | Dronebhai",
   description:
-    "Authorized DJI drone repair and service in Ahmedabad. Specializing in gimbal repairs, arm replacements, ESC micro-soldering, water damage, and sensor calibration for all DJI Mini, Mavic, Air, Avata, Inspire, and Enterprise drones.",
+    "Authorized DJI drone repair & maintenance hub in Ahmedabad. Specializing in gimbal replacement, camera lens repair, ESC micro-soldering, crash recovery, water damage repair, and sensor calibration with genuine DJI OEM parts.",
+  alternates: {
+    canonical: "/dji-service",
+  },
+  openGraph: {
+    title: "DJI Drone Repair & Service Center in Ahmedabad | Dronebhai",
+    description:
+      "Expert DJI drone repairs: Mini 4 Pro, Mini 3, Mavic 3, Air 3, Avata 2, Inspire 2. 100% genuine parts, 24-48h turnaround, and test-flight certified.",
+    url: "https://dronebhai.com/dji-service",
+    siteName: "Dronebhai",
+    images: [
+      {
+        url: "/images/drone-flagship-3d.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dronebhai DJI Drone Repair and Service Hub Ahmedabad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DJI Drone Repair & Service Center | Dronebhai",
+    description:
+      "Get your DJI drone diagnosed and repaired by certified engineers with OEM parts in Ahmedabad.",
+    images: ["/images/drone-flagship-3d.jpg"],
+  },
+};
+
+const djiServiceFaqs = [
+  {
+    q: "What DJI models do you service at Dronebhai?",
+    a: "We service all DJI consumer, enterprise, and FPV drones including DJI Mini 4 Pro, Mini 3 Pro, Mini 2 SE, Mavic 3 Pro, Mavic 3 Classic, Air 3, Air 2S, Avata 2, DJI FPV, Phantom 4 Pro, and Inspire 2.",
+  },
+  {
+    q: "How much does DJI drone repair cost in India?",
+    a: "Diagnostic inspections are fast and transparent. Minor repairs (arm swaps, propellers, ribbon cables) start from ₹1,499. Gimbal replacements, camera lens swaps, and ESC motherboard micro-soldering are quoted transparently based on OEM part costs.",
+  },
+  {
+    q: "Do you use authentic DJI spare parts?",
+    a: "Yes, we exclusively use 100% genuine DJI OEM replacement components and parts, backed by a service warranty.",
+  },
+  {
+    q: "How fast can I get my DJI drone repaired?",
+    a: "Standard repair turnaround is 24 to 48 hours. Express same-day service is available for priority cases at our Ahmedabad South Bopal & Tragad labs.",
+  },
+];
+
+const djiStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://dronebhai.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "DJI Service Hub",
+          item: "https://dronebhai.com/dji-service",
+        },
+      ],
+    },
+    {
+      "@type": "Service",
+      name: "Authorized DJI Drone Repair & Service Center",
+      provider: { "@id": "https://dronebhai.com/#organization" },
+      areaServed: [
+        { "@type": "City", name: "Ahmedabad" },
+        { "@type": "State", name: "Gujarat" },
+        { "@type": "Country", name: "India" },
+      ],
+      serviceType: "Electronics Drone Repair",
+      description:
+        "Comprehensive DJI drone repairs including gimbal realignment, camera replacement, ESC motherboard soldering, and IMU calibration.",
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "INR",
+        lowPrice: "1499",
+        highPrice: "45000",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: djiServiceFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a,
+        },
+      })),
+    },
+  ],
 };
 
 const serviceOfferings = [
@@ -152,6 +250,7 @@ const djiFleetSeries = [
 export default function DjiServicePage() {
   return (
     <main className="bg-background text-on-background">
+      <JsonLd data={djiStructuredData} />
       {/* ============================================================
           HERO SECTION
           ============================================================ */}

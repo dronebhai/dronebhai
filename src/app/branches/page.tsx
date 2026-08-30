@@ -1,10 +1,92 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Branches & Contact | Dronebhai — Visit Our Ahmedabad Labs",
+  title: "Branches & Drone Labs in Ahmedabad | Dronebhai Contact",
   description:
-    "Visit Dronebhai's two Ahmedabad drone labs — South Bopal Flagship Repair Lab and Tragad Service Centre. Open Mon–Sat 11AM–7PM. Call 8002 8003 80.",
+    "Visit Dronebhai's authorized drone repair labs in South Bopal and Tragad, Ahmedabad. Direct walk-in diagnostics, custom build consultations, and DJI drone servicing.",
+  alternates: {
+    canonical: "/branches",
+  },
+  openGraph: {
+    title: "Dronebhai Labs & Service Locations in Ahmedabad",
+    description:
+      "South Bopal Flagship Repair Lab & Tragad Service Centre. Walk-in DJI repairs, custom consultations, open Mon–Sat 11AM–7PM.",
+    url: "https://dronebhai.com/branches",
+    siteName: "Dronebhai",
+    images: [
+      {
+        url: "/images/about-lab.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dronebhai Ahmedabad Drone Lab",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dronebhai Labs & Service Locations in Ahmedabad",
+    description: "Visit our two state-of-the-art drone labs in Ahmedabad for DJI repairs & custom UAV builds.",
+    images: ["/images/about-lab.jpg"],
+  },
+};
+
+const branchesStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://dronebhai.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Branches & Contact",
+          item: "https://dronebhai.com/branches",
+        },
+      ],
+    },
+    {
+      "@type": "ContactPage",
+      "@id": "https://dronebhai.com/branches/#webpage",
+      url: "https://dronebhai.com/branches",
+      name: "Dronebhai Branches & Service Centers",
+      mainEntity: [
+        {
+          "@type": "LocalBusiness",
+          name: "Dronebhai - South Bopal Flagship Drone Lab",
+          telephone: "+91-8002800380",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "123 Aerial Hub Building, SOBO Center Road, South Bopal",
+            addressLocality: "Ahmedabad",
+            addressRegion: "Gujarat",
+            postalCode: "380058",
+            addressCountry: "IN",
+          },
+        },
+        {
+          "@type": "LocalBusiness",
+          name: "Dronebhai - Tragad Service Centre",
+          telephone: "+91-8002800380",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "45 Tech Park Phase 2, Tragad Road, Tragad",
+            addressLocality: "Ahmedabad",
+            addressRegion: "Gujarat",
+            postalCode: "382481",
+            addressCountry: "IN",
+          },
+        },
+      ],
+    },
+  ],
 };
 
 const branches = [
@@ -37,6 +119,7 @@ const branches = [
 export default function BranchesPage() {
   return (
     <main className="bg-background text-on-background bg-grid-pattern relative selection:bg-primary selection:text-on-primary">
+      <JsonLd data={branchesStructuredData} />
       {/* ── Page Header ───────────────────────────────────── */}
       <section className="pt-10 md:pt-20 pb-12 md:pb-16 px-gutter max-w-7xl mx-auto text-center">
         {/* Eyebrow */}

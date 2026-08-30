@@ -1,7 +1,102 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import { productCategories } from "@/lib/data/categories";
+import JsonLd from "@/components/JsonLd";
+
+export const metadata: Metadata = {
+  title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Repair Center",
+  description:
+    "Buy authentic DJI drones, custom industrial & FPV drones, precision agricultural UAVs, and get certified DJI drone repair services across Ahmedabad, Gujarat, India.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Repair Center",
+    description:
+      "Buy authentic DJI drones, custom industrial & FPV drones, precision agricultural UAVs, and get certified DJI drone repair services across Ahmedabad, Gujarat, India.",
+    url: "https://dronebhai.com",
+    siteName: "Dronebhai",
+    images: [
+      {
+        url: "/images/hero-drone-flagship.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dronebhai India - Drone Sales, Manufacturing and Repair",
+      },
+    ],
+  },
+};
+
+const homeFaqs = [
+  {
+    q: "Do you service DJI drones purchased elsewhere?",
+    a: "Yes. We diagnose and service any DJI drone regardless of where it was purchased in India or internationally.",
+  },
+  {
+    q: "How long does a repair take in Ahmedabad?",
+    a: "Standard repairs are completed within 24–48 hours. Express diagnostics are completed in 2–4 hours at our South Bopal and Tragad labs.",
+  },
+  {
+    q: "Can I ship my drone from outside Ahmedabad?",
+    a: "Yes. We coordinate insured doorstep courier pickup and delivery across all cities and states in India.",
+  },
+  {
+    q: "Are the replacement parts authentic OEM?",
+    a: "Yes, we exclusively use 100% genuine factory OEM parts backed by a comprehensive warranty.",
+  },
+  {
+    q: "Do you build custom drones for industrial use?",
+    a: "Yes, our aerospace engineering team manufactures custom agricultural, survey, mapping, thermal inspection, and cinematic FPV airframes.",
+  },
+];
+
+const homeStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://dronebhai.com/#webpage",
+      url: "https://dronebhai.com",
+      name: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Repair Center",
+      description:
+        "India's premier drone ecosystem: buy authentic DJI drones, custom industrial & FPV drone manufacturing, genuine spare parts, and certified DJI drone repair services.",
+      isPartOf: { "@id": "https://dronebhai.com/#website" },
+      about: { "@id": "https://dronebhai.com/#organization" },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dronebhai.com/#faq",
+      mainEntity: homeFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a,
+        },
+      })),
+    },
+    {
+      "@type": "Service",
+      name: "DJI Drone Repair & Maintenance Service",
+      provider: { "@id": "https://dronebhai.com/#organization" },
+      areaServed: "India",
+      serviceType: "Drone Repair",
+      description:
+        "Professional diagnosis, gimbal replacement, ESC micro-soldering, arm replacement, and optical sensor calibration for all DJI drone models.",
+    },
+    {
+      "@type": "Service",
+      name: "Custom Drone Design & Manufacturing",
+      provider: { "@id": "https://dronebhai.com/#organization" },
+      areaServed: "India",
+      serviceType: "Drone Manufacturing",
+      description:
+        "End-to-end custom drone engineering for agricultural spraying, LiDAR mapping, thermal inspection, and high-speed cinematic FPV.",
+    },
+  ],
+};
 
 const HeroAnimatedDrone = dynamic(
   () => import("@/components/HeroAnimatedDrone")
@@ -21,6 +116,7 @@ export default function HomePage() {
 
   return (
     <main className="flex-grow bg-background text-on-background">
+      <JsonLd data={homeStructuredData} />
       {/* ============================================================
           1. HERO SECTION (Minimalist White Theme Showcase)
           ============================================================ */}

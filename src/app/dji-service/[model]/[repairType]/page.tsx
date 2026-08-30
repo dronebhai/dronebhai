@@ -7,6 +7,7 @@ import {
   getModelBySlug,
   getRepairTypeBySlug,
 } from "@/lib/data/dji-service";
+import JsonLd from "@/components/JsonLd";
 
 interface Props {
   params: Promise<{ model: string; repairType: string }>;
@@ -22,21 +23,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const modelData = getModelBySlug(model);
   const repairTypeData = getRepairTypeBySlug(repairType);
 
-  if (entry) {
-    return {
-      title: entry.pageTitle,
-      description: entry.heroSubtitle,
-    };
-  }
+  const modelName = modelData?.label || model;
+  const repairName = repairTypeData?.label || repairType;
+  const pageTitle = entry?.pageTitle || `${modelName} ${repairName} | DJI Repair Ahmedabad | Dronebhai`;
+  const pageDesc = entry?.heroSubtitle || `Professional ${repairName} service for your ${modelName} with 100% genuine DJI OEM parts at Dronebhai — Ahmedabad's certified drone repair centre.`;
 
-  if (modelData && repairTypeData) {
-    return {
-      title: `${modelData.label} ${repairTypeData.label} | Dronebhai`,
-      description: `Expert ${repairTypeData.label} service for your ${modelData.label} at Dronebhai — DJI authorized repair centre in Ahmedabad.`,
-    };
-  }
-
-  return { title: "DJI Repair | Dronebhai" };
+  return {
+    title: pageTitle,
+    description: pageDesc,
+    alternates: {
+      canonical: `/dji-service/${model}/${repairType}`,
+    },
+    openGraph: {
+      title: `${pageTitle}`,
+      description: pageDesc,
+      url: `https://dronebhai.com/dji-service/${model}/${repairType}`,
+      siteName: "Dronebhai",
+      images: [
+        {
+          url: entry?.heroImageUrl || "/images/drone-flagship-3d.jpg",
+          alt: `${modelName} ${repairName} — Dronebhai`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDesc,
+      images: [entry?.heroImageUrl || "/images/drone-flagship-3d.jpg"],
+    },
+  };
 }
 
 export default async function DjiRepairDetailPage({ params }: Props) {
@@ -85,8 +101,67 @@ export default async function DjiRepairDetailPage({ params }: Props) {
     },
   ];
 
+  const repairDetailStructuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dronebhai.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "DJI Service Hub",
+            item: "https://dronebhai.com/dji-service",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: `${modelData.label} ${repairTypeData.label}`,
+            item: `https://dronebhai.com/dji-service/${modelSlug}/${repairTypeSlug}`,
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: `${modelData.label} ${repairTypeData.label}`,
+        serviceType: `DJI Drone ${repairTypeData.label}`,
+        provider: {
+          "@id": "https://dronebhai.com/#organization",
+        },
+        areaServed: [
+          { "@type": "City", name: "Ahmedabad" },
+          { "@type": "Country", name: "India" },
+        ],
+        description: subtitle,
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "INR",
+          description: priceRange,
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.a,
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <main className="bg-background text-on-background antialiased overflow-x-hidden">
+      <JsonLd data={repairDetailStructuredData} />
       {/* ── Hero Section ─────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-gutter py-12 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-section-gap-mobile md:mb-section-gap-desktop">
