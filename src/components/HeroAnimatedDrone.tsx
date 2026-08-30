@@ -2,11 +2,24 @@
 
 import React, { Suspense, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
-import { useGLTF, OrbitControls, Float, Center } from "@react-three/drei";
+import { useGLTF, OrbitControls, Float, Center, Html } from "@react-three/drei";
 
 /* Preload 3D Model */
 if (typeof window !== "undefined") {
   useGLTF.preload("/models/drone.glb");
+}
+
+function Loader() {
+  return (
+    <Html center>
+      <div className="flex flex-col items-center justify-center gap-2.5 text-center select-none pointer-events-none">
+        <div className="w-9 h-9 border-2 border-primary/25 border-t-primary rounded-full animate-spin" />
+        <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider font-mono">
+          Loading 3D Model...
+        </span>
+      </div>
+    </Html>
+  );
 }
 
 function Drone() {
@@ -59,7 +72,7 @@ export default function HeroAnimatedDrone() {
         />
 
         {/* Subtle levitation float effect + Auto-centering elevated slightly */}
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Float
             position={[0, 0.04, 0]}
             speed={1.5}
