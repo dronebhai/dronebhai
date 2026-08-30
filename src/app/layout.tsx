@@ -23,6 +23,23 @@ export const metadata: Metadata = {
     "Dronebhai offers high-quality drone sales, custom drone manufacturing, and expert DJI drone servicing. Explore our wide range of kids, hobby, racing, agricultural, and enterprise drones.",
   keywords:
     "drone, drone sales, custom drones, DJI service, DJI repair, agricultural drones, FPV drones, drone manufacturing, Dronebhai, Robuzta Techlabs",
+  icons: {
+    icon: [
+      { url: "/images/favicon.ico" },
+      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "apple-touch-icon-precomposed",
+        url: "/images/apple-touch-icon.png",
+      },
+    ],
+  },
+  manifest: "/images/site.webmanifest",
 };
 
 export default function RootLayout({
