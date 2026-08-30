@@ -37,99 +37,91 @@ const serviceOfferings = [
 
 const djiAllRepairsDirectory = [
   {
-    category: "Gimbal & Camera Repairs",
+    category: "Gimbal & Camera",
     icon: "tune",
-    symptoms: "Gimbal Overload warning, jittery video, camera tilted sideways, cracked lens, or disconnected gimbal arm.",
+    symptoms: "Gimbal overload, jittery video, tilted camera, cracked lens.",
     repairs: [
-      "Gimbal Overload & Motor Jam Fix",
-      "Yaw / Pitch / Roll Motor Realignment",
-      "Ultra-fine Gimbal Flex Ribbon Cable Replacement",
-      "Camera Lens Glass & Sensor Module Replacement",
-      "3-Axis Mechanical Gimbal Anti-Vibration Dampeners",
+      "Gimbal Motor Jam & Overload Fix",
+      "Flex Ribbon Cable Replacement",
+      "Camera Lens Glass & Sensor Swap",
+      "Anti-Vibration Dampeners Realignment",
     ],
   },
   {
-    category: "Frame, Arms & Shell Replacement",
+    category: "Frame & Arms",
     icon: "hardware",
-    symptoms: "Cracked carbon/poly arms after crash, broken landing gear, loose motor joints, shattered top/middle shell.",
+    symptoms: "Broken motor arms, cracked shell, damaged landing gear.",
     repairs: [
-      "Front Left / Right Motor Arm Swap",
-      "Rear Left / Right Motor Arm Swap",
-      "Upper Shell, Middle Frame & Bottom Housing Replacement",
-      "Landing Gear Struts & Antenna Wire Routing",
-      "Quick-Release Propeller Lock Hub Mechanism",
+      "Front/Rear Motor Arm Swap",
+      "Upper & Bottom Shell Replacement",
+      "Landing Struts & Wire Routing",
+      "Quick-Release Propeller Hubs",
     ],
   },
   {
-    category: "ESC, Motherboard & Micro-Soldering",
+    category: "ESC & Mainboard",
     icon: "memory",
-    symptoms: "ESC Status Error, motor won't spin, drone won't power on, burnt smell or blown electronic components.",
+    symptoms: "ESC status error, motor won't spin, power failure.",
     repairs: [
-      "ESC Board Power MOSFET Replacement",
-      "Core Mainboard Micro-Soldering & Circuit Tracing",
-      "Power Management IC & Battery Terminal Soldering",
-      "Internal Ribbon Bus & Communication Cable Loom",
-      "Onboard GPS & Compass Module Integration",
+      "ESC MOSFET Micro-Soldering",
+      "Mainboard Circuit Tracing",
+      "Power Management IC Soldering",
+      "Onboard GPS & Compass Tuning",
     ],
   },
   {
-    category: "Obstacle Avoidance & Vision Sensors",
+    category: "Vision & Sensors",
     icon: "sensors",
-    symptoms: "Vision System Error, downward sensor calibration failed, drone drifting indoors, obstacle sensing disabled.",
+    symptoms: "Vision error, indoor drift, collision sensing disabled.",
     repairs: [
-      "Forward & Backward Dual-Vision Sensor Replacement",
-      "Downward Optical Flow & ToF Sensor Calibration",
-      "Lateral Infrared Sensing Module Alignment",
-      "Auxiliary Bottom Landing Light Replacement",
-      "DJI Assistant 2 Factory Sensor Alignment",
+      "Forward/Backward Vision Sensors",
+      "Downward Optical Flow & ToF Setup",
+      "Infrared Sensing Alignment",
+      "DJI Assistant 2 Calibration",
     ],
   },
   {
-    category: "Liquid & Water Damage Restoration",
+    category: "Water Damage",
     icon: "water_drop",
-    symptoms: "Drone fell in lake/pool/rain, won't turn on, corrosion marks, short-circuit errors.",
+    symptoms: "Fell in water/rain, won't turn on, corrosion marks.",
     repairs: [
-      "Immediate High-Frequency Ultrasonic Chemical Bath",
-      "Full Board De-oxidation & Corrosion Neutralization",
-      "Power-Rail Short Circuit Detection & Soldering",
-      "Motor Bearing De-rusting & Lubrication",
-      "Pre-flight Multi-Stage Electrical Safety Clearance",
+      "High-Frequency Ultrasonic Wash",
+      "Board De-Oxidation & Neutralization",
+      "Short Circuit Detection & Soldering",
+      "Motor Bearing De-Rusting",
     ],
   },
   {
-    category: "Remote Controllers & Goggles",
+    category: "Remotes & Goggles",
     icon: "sports_esports",
-    symptoms: "DJI RC stick drifting, cracked controller touchscreen, antenna broken, short battery life, Goggles screen black.",
+    symptoms: "Joystick drift, cracked screen, antenna broken, low battery.",
     repairs: [
-      "DJI RC / RC 2 / RC Pro Joystick Potentiometer Replacement",
-      "Cracked Touchscreen LCD Display Replacement",
-      "Internal Controller Li-Ion Battery Swap",
-      "2.4GHz / 5.8GHz High-Gain Antenna Repair",
-      "DJI Goggles 2 / 3 / Integra Optics & Screen Fixes",
+      "DJI RC Stick Potentiometer Fix",
+      "Touchscreen LCD Replacement",
+      "Internal Li-Ion Battery Swap",
+      "High-Gain Antenna Repair",
     ],
   },
   {
-    category: "Firmware, Error Codes & Software",
+    category: "Firmware & Codes",
     icon: "system_update",
-    symptoms: "Error Code 30007, 40003, 180, firmware update stuck at 99%, NFZ authorization issues.",
+    symptoms: "Error 30007, 40003, stuck update, NFZ issues.",
     repairs: [
-      "Blackbox Flight Log Extraction & Audit",
-      "Firmware Unbricking & Forced Factory Downgrade/Upgrade",
-      "IMU & Accelerometer Advanced Recalibration",
-      "Compass Magnetic Interference Neutralization",
-      "DJI Fly / DJI Pilot 2 App Account & License Binding",
+      "Blackbox Flight Log Audit",
+      "Firmware Unbricking & Factory Reset",
+      "IMU & Accelerometer Tuning",
+      "Compass Interference Fix",
     ],
   },
   {
-    category: "Battery & Power Management",
+    category: "Battery Health",
     icon: "battery_charging_full",
-    symptoms: "Battery in deep sleep (hibernation), swollen cells, error communication with aircraft, sudden drop in percentage.",
+    symptoms: "Battery deep sleep hibernation, swollen cells, drop in %.",
     repairs: [
-      "Deep Sleep BMS Wake-up & Cell Balancing",
-      "Battery Terminal Contact Pin Replacement",
-      "Intelligent Flight Battery Health Diagnostics",
-      "Charging Hub Port Repair",
-      "Discharge Curve & Internal Resistance Testing",
+      "Deep Sleep BMS Wake-up",
+      "Battery Terminal Pin Repair",
+      "Internal Resistance Testing",
+      "Charging Port Diagnostics",
     ],
   },
 ];
@@ -258,15 +250,15 @@ export default function DjiServicePage() {
           ============================================================ */}
       <section className="py-14 md:py-20 bg-surface-bright border-y border-outline-variant/30">
         <div className="max-w-7xl mx-auto px-gutter">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <span className="font-eyebrow text-eyebrow text-primary uppercase tracking-widest font-bold block mb-2">
-              Complete Repair Catalog
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <span className="font-eyebrow text-xs text-primary uppercase tracking-widest font-bold block mb-1">
+              Repair Directory
             </span>
-            <h2 className="font-headline-md text-2xl sm:text-3xl md:text-4xl text-on-background font-bold mb-4">
-              All Available DJI Repair Services &amp; Supported Models
+            <h2 className="font-headline text-2xl sm:text-3xl text-slate-900 font-bold mb-2">
+              All Available DJI Repairs
             </h2>
-            <p className="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed">
-              Anyone can easily understand what we fix. Below is the complete breakdown of every DJI component, symptom, error code, and repair procedure handled at our Ahmedabad labs.
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Genuine OEM components &amp; certified calibration for every DJI drone model.
             </p>
           </div>
 

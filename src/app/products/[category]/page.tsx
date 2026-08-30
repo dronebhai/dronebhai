@@ -76,16 +76,13 @@ export default async function CategoryPage({ params }: Props) {
       {/* ── Product Models Grid ───────────────────────────── */}
       <section
         id="products"
-        className="px-gutter max-w-7xl mx-auto py-12 md:py-16"
+        className="px-gutter max-w-7xl mx-auto py-10 md:py-14"
       >
-        <div className="flex items-center gap-4 mb-8">
-          <div className="w-1.5 h-8 bg-primary rounded-full" />
-          <div>
-            <span className="font-eyebrow text-eyebrow text-primary uppercase block">Available Fleet</span>
-            <h2 className="font-headline-md text-headline-md text-on-background">
-              {cat.sectionHeading}
-            </h2>
-          </div>
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-1.5 h-6 bg-primary rounded-full" />
+          <h2 className="font-headline text-xl sm:text-2xl text-slate-900 font-bold">
+            {cat.sectionHeading}
+          </h2>
         </div>
 
         {/* Dynamic Balanced Fleet Grid */}
@@ -94,60 +91,53 @@ export default async function CategoryPage({ params }: Props) {
             cat.products.length >= 3
               ? "md:grid-cols-2 lg:grid-cols-3"
               : "lg:grid-cols-2"
-          } gap-8 mb-16`}
+          } gap-6 mb-12`}
         >
           {cat.products.map((product) => (
             <article
               key={product.id}
-              className="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 overflow-hidden flex flex-col group hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+              className="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col group hover:shadow-lg hover:border-primary/40 transition-all"
             >
               {/* Image Banner */}
-              <div className="aspect-video relative bg-surface-container-low flex items-center justify-center overflow-hidden p-6">
+              <div className="aspect-video relative bg-surface-container-low flex items-center justify-center overflow-hidden p-4">
                 <img
                   src={product.imageUrl}
                   alt={product.name}
                   className="object-cover h-full w-full group-hover:scale-105 transition-transform duration-500 rounded-lg"
                 />
                 {product.badge && (
-                  <div className="absolute top-4 right-4 bg-primary text-on-primary rounded-full px-3 py-1 flex items-center gap-1.5 shadow-md">
-                    <span className="material-symbols-outlined text-xs">verified</span>
-                    <span className="font-label-md text-xs font-bold">{product.badge}</span>
+                  <div className="absolute top-3 right-3 bg-primary text-white rounded-full px-2.5 py-0.5 flex items-center gap-1 shadow-xs">
+                    <span className="font-bold text-[10px] uppercase">{product.badge}</span>
                   </div>
                 )}
-                <div className="absolute bottom-3 left-3 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-md border border-outline-variant/30 text-xs font-bold text-primary shadow-xs">
+                <div className="absolute bottom-2.5 left-2.5 bg-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded border border-outline-variant/30 text-xs font-bold text-primary">
                   {product.priceRange}
                 </div>
               </div>
 
               {/* Body */}
-              <div className="p-6 md:p-8 flex flex-col flex-1">
-                <span className="font-eyebrow text-eyebrow text-primary uppercase mb-1">
-                  {product.eyebrow}
-                </span>
-                <h3 className="font-headline-md text-xl md:text-2xl text-on-background font-bold mb-2">
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="font-bold text-lg text-slate-900 mb-1">
                   {product.name}
                 </h3>
-                <p className="font-body-md text-sm text-on-surface-variant font-medium mb-4 italic">
+                <p className="text-xs text-slate-500 font-medium mb-3 italic">
                   &ldquo;{product.tagline}&rdquo;
-                </p>
-                <p className="font-body-md text-sm text-on-surface-variant mb-6 leading-relaxed">
-                  {product.description}
                 </p>
 
                 {/* Key Specs Pills */}
-                <div className="grid grid-cols-3 gap-2 mb-6 p-3 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                <div className="grid grid-cols-3 gap-2 mb-4 p-2.5 bg-surface-container-low rounded-xl border border-outline-variant/20">
                   {product.specs.map((s, idx) => (
                     <div key={idx} className="text-center">
-                      <span className="block text-[11px] text-on-surface-variant uppercase">{s.label}</span>
-                      <span className="block font-bold text-xs md:text-sm text-primary">{s.value}</span>
+                      <span className="block text-[10px] text-slate-500 uppercase">{s.label}</span>
+                      <span className="block font-bold text-xs text-primary">{s.value}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Highlights */}
-                <div className="mb-6 flex flex-wrap gap-2">
+                <div className="mb-4 flex flex-wrap gap-1.5">
                   {product.highlightFeatures.map((hf, i) => (
-                    <span key={i} className="text-xs bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant flex items-center gap-1">
+                    <span key={i} className="text-[11px] bg-surface-container px-2 py-0.5 rounded text-slate-600 flex items-center gap-1">
                       <span className="material-symbols-outlined text-xs text-primary">check</span>
                       {hf}
                     </span>
@@ -155,205 +145,127 @@ export default async function CategoryPage({ params }: Props) {
                 </div>
 
                 {/* Action CTA */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mt-auto pt-5 border-t border-outline-variant/30">
+                <div className="flex items-center gap-2 mt-auto pt-3 border-t border-outline-variant/20">
                   <a
                     href={`https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20want%20to%20enquire%20about%20${encodeURIComponent(product.name)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-primary text-on-primary font-button text-xs uppercase py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:brightness-110 transition-all font-bold"
+                    className="flex-1 bg-primary hover:bg-primary/90 text-white font-button text-xs uppercase py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 font-bold transition-all"
                   >
                     <span className="material-symbols-outlined text-sm">chat</span>
-                    <span>Order / Enquire on WhatsApp</span>
+                    <span>Order on WhatsApp</span>
                   </a>
                   <a
                     href="tel:8002800380"
-                    className="sm:w-auto border border-outline-variant hover:border-primary text-primary font-button text-xs py-3 px-4 rounded-lg flex items-center justify-center gap-1.5 transition-colors"
+                    className="border border-outline-variant/40 hover:border-primary text-primary font-button text-xs py-2.5 px-3 rounded-lg flex items-center justify-center gap-1 transition-colors"
                   >
                     <span className="material-symbols-outlined text-sm">phone</span>
-                    <span>Call Lab</span>
+                    <span>Call</span>
                   </a>
                 </div>
               </div>
             </article>
           ))}
-
-          {/* If there's only 1 product in category, pair with a custom configuration consultation card */}
-          {cat.products.length === 1 && (
-            <div className="bg-surface-container-lowest rounded-2xl border-2 border-dashed border-primary/30 p-8 flex flex-col justify-between items-center text-center shadow-xs">
-              <div className="my-auto flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
-                  <span className="material-symbols-outlined text-3xl">precision_manufacturing</span>
-                </div>
-                <span className="font-eyebrow text-xs uppercase tracking-widest text-primary font-bold mb-2">
-                  Bespoke Engineering
-                </span>
-                <h3 className="font-headline-md text-xl md:text-2xl text-on-background font-bold mb-3">
-                  Need Custom Configuration?
-                </h3>
-                <p className="text-xs md:text-sm text-on-surface-variant max-w-md leading-relaxed mb-6">
-                  We engineer tailored payload brackets, custom flight batteries, extended video transmission, and specialized sensor arrays for your exact mission.
-                </p>
-                <div className="flex flex-wrap justify-center gap-2 mb-8">
-                  <span className="text-xs bg-surface-container-low px-3 py-1 rounded-full text-on-surface">Custom CAD Mounts</span>
-                  <span className="text-xs bg-surface-container-low px-3 py-1 rounded-full text-on-surface">Telemetry Tuning</span>
-                  <span className="text-xs bg-surface-container-low px-3 py-1 rounded-full text-on-surface">Lab Bench Flight Test</span>
-                </div>
-              </div>
-
-              <a
-                href={`https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20need%20a%20custom%20configuration%20for%20${encodeURIComponent(cat.label)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-primary text-on-primary font-button text-xs uppercase py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 hover:brightness-110 transition-all font-bold shadow-sm"
-              >
-                <span className="material-symbols-outlined text-sm">engineering</span>
-                <span>Consult Senior Aerospace Engineer</span>
-              </a>
-            </div>
-          )}
         </div>
 
         {/* ── Category Deep Dive & Technical Specifications ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {/* Left 2 cols: Description & Features */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="bg-surface-container-low rounded-2xl p-6 md:p-8 border border-outline-variant/30">
-              <h3 className="font-headline-md text-xl md:text-2xl text-on-background font-bold mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">info</span>
-                About {cat.label}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+          {/* Left 2 cols: Description & Tech Specs */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30">
+              <h3 className="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-base">info</span>
+                Overview
               </h3>
-              <p className="font-body-md text-on-surface-variant leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
                 {cat.description}
               </p>
-              <h4 className="font-label-md text-sm font-bold uppercase text-on-background tracking-wider mb-3">
-                Key Engineering Features
+              <h4 className="text-xs font-bold uppercase text-slate-800 tracking-wider mb-2">
+                Key Features
               </h4>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {cat.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2.5 bg-surface p-3 rounded-lg border border-outline-variant/20">
-                    <span className="material-symbols-outlined text-primary text-base shrink-0 mt-0.5">
-                      check_circle
-                    </span>
-                    <span className="font-body-md text-xs md:text-sm text-on-surface-variant">
-                      {feature}
-                    </span>
+                  <li key={i} className="flex items-center gap-2 bg-surface p-2 rounded-lg border border-outline-variant/20 text-xs text-slate-700">
+                    <span className="material-symbols-outlined text-primary text-sm shrink-0">check_circle</span>
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Technical Specifications Table */}
-            <div className="bg-surface-container-low rounded-2xl p-6 md:p-8 border border-outline-variant/30">
-              <h3 className="font-headline-md text-xl md:text-2xl text-on-background font-bold mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">settings_suggest</span>
+            <div className="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30">
+              <h3 className="text-base font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-base">settings_suggest</span>
                 Technical Specifications
               </h3>
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm">
-                  <tbody className="divide-y divide-outline-variant/30">
+                <table className="w-full text-left text-xs">
+                  <tbody className="divide-y divide-outline-variant/20">
                     {cat.techSpecs.map((spec, i) => (
-                      <tr key={i} className="hover:bg-surface/50 transition-colors">
-                        <td className="py-3 px-4 font-bold text-on-surface w-1/3 bg-surface/30">{spec.feature}</td>
-                        <td className="py-3 px-4 text-on-surface-variant">{spec.detail}</td>
+                      <tr key={i}>
+                        <td className="py-2.5 px-3 font-semibold text-slate-900 w-1/3 bg-surface/50">{spec.feature}</td>
+                        <td className="py-2.5 px-3 text-slate-600">{spec.detail}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
             </div>
-
-            {/* Key Applications */}
-            <div className="bg-surface-container-low rounded-2xl p-6 md:p-8 border border-outline-variant/30">
-              <h3 className="font-headline-md text-xl md:text-2xl text-on-background font-bold mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">flight_takeoff</span>
-                Key Applications &amp; Use Cases
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {cat.keyApplications.map((app, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 bg-surface rounded-lg border border-outline-variant/20 text-sm font-medium text-on-surface">
-                    <span className="material-symbols-outlined text-primary text-base">verified</span>
-                    <span>{app}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
-          {/* Right Col: Who it's for & What's In The Box */}
-          <div className="space-y-8">
-            {/* Who it's for */}
-            <div className="bg-surface-container-low rounded-2xl p-6 md:p-8 border border-outline-variant/30">
-              <span className="font-eyebrow text-eyebrow text-primary uppercase block mb-2 tracking-widest">
-                Target Audience
-              </span>
-              <h3 className="font-headline-md text-xl text-on-background font-bold mb-4">
-                Who It&apos;s For
-              </h3>
-              <p className="font-body-md text-sm text-on-surface-variant leading-relaxed mb-6">
+          {/* Right Col: Consultation & Included in Box */}
+          <div className="space-y-6">
+            <div className="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30">
+              <span className="text-[10px] font-bold text-primary uppercase block mb-1">Target Audience</span>
+              <h4 className="text-base font-bold text-slate-900 mb-2">Who It&apos;s For</h4>
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">
                 {cat.whoItsFor}
               </p>
               <a
                 href={`https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20need%20expert%20guidance%20on%20${encodeURIComponent(cat.label)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-primary text-on-primary font-button text-xs py-3.5 px-4 rounded-lg uppercase text-center flex items-center justify-center gap-2 hover:brightness-110 transition-all font-bold shadow-md"
+                className="w-full bg-primary hover:bg-primary/90 text-white font-button text-xs py-2.5 px-3 rounded-lg uppercase text-center flex items-center justify-center gap-1.5 font-bold transition-all"
               >
                 <span className="material-symbols-outlined text-sm">chat</span>
-                <span>Get Free Consultation</span>
+                <span>Get Consultation</span>
               </a>
             </div>
 
-            {/* In the Box */}
-            <div className="bg-surface-container-low rounded-2xl p-6 md:p-8 border border-outline-variant/30">
-              <h4 className="font-headline-md text-lg text-on-background font-bold mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">inventory_2</span>
-                Standard In-The-Box
+            <div className="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30">
+              <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-primary text-base">inventory_2</span>
+                In-The-Box
               </h4>
-              <ul className="space-y-2.5">
+              <ul className="space-y-1.5">
                 {cat.includedAccessories.map((acc, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-xs md:text-sm text-on-surface-variant">
-                    <span className="material-symbols-outlined text-primary text-sm">check</span>
+                  <li key={i} className="flex items-center gap-2 text-xs text-slate-600">
+                    <span className="material-symbols-outlined text-primary text-xs">check</span>
                     <span>{acc}</span>
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Why Dronebhai Box */}
-            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6">
-              <h4 className="font-bold text-base text-primary mb-3 flex items-center gap-2">
-                <span className="material-symbols-outlined">verified_user</span>
-                The Dronebhai Guarantee
-              </h4>
-              <p className="text-xs text-on-surface-variant leading-relaxed mb-4">
-                All drones tested before dispatch at our Ahmedabad labs. Complete spare parts support, warranty servicing, and live pilot flight guidance.
-              </p>
-              <div className="text-xs font-semibold text-primary">
-                Authorized Service • Pan-India Delivery
-              </div>
             </div>
           </div>
         </div>
 
         {/* ── Category FAQs ─────────────────────────────────── */}
         {cat.faqs.length > 0 && (
-          <div className="mb-16 max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <span className="font-eyebrow text-eyebrow text-primary uppercase tracking-widest block mb-1">
-                Common Questions
-              </span>
-              <h3 className="font-headline-md text-2xl text-on-background font-bold">
+          <div className="mb-12 max-w-3xl mx-auto">
+            <div className="text-center mb-6">
+              <h3 className="font-bold text-lg text-slate-900">
                 {cat.label} FAQs
               </h3>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {cat.faqs.map((faq, idx) => (
-                <div key={idx} className="bg-surface-container-low rounded-xl p-5 border border-outline-variant/30">
-                  <h4 className="font-bold text-sm md:text-base text-on-background mb-2 flex items-start gap-2">
-                    <span className="material-symbols-outlined text-primary text-base mt-0.5">help</span>
+                <div key={idx} className="bg-surface-container-low rounded-xl p-4 border border-outline-variant/30">
+                  <h4 className="font-bold text-xs sm:text-sm text-slate-900 mb-1 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-primary text-base">help</span>
                     <span>{faq.q}</span>
                   </h4>
-                  <p className="font-body-md text-xs md:text-sm text-on-surface-variant pl-6 leading-relaxed">
+                  <p className="text-xs text-slate-600 pl-6 leading-relaxed">
                     {faq.a}
                   </p>
                 </div>
@@ -362,21 +274,21 @@ export default async function CategoryPage({ params }: Props) {
           </div>
         )}
 
-        {/* ── All Categories Breadcrumb Navigation ─────────── */}
-        <div className="pt-8 border-t border-outline-variant/30 flex items-center justify-between">
+        {/* ── Navigation ─────────── */}
+        <div className="pt-6 border-t border-outline-variant/30 flex items-center justify-between">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 font-label-md text-sm text-primary font-bold hover:underline"
+            className="inline-flex items-center gap-1.5 text-xs text-primary font-bold hover:underline"
           >
-            <span className="material-symbols-outlined text-base">arrow_back</span>
-            View All 16 Categories
+            <span className="material-symbols-outlined text-sm">arrow_back</span>
+            All 16 Categories
           </Link>
           <a
             href="tel:8002800380"
-            className="text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1.5"
+            className="text-xs text-slate-600 hover:text-primary transition-colors flex items-center gap-1"
           >
-            <span className="material-symbols-outlined text-base">call</span>
-            Need help choosing? Call 8002 8003 80
+            <span className="material-symbols-outlined text-sm">call</span>
+            8002 8003 80
           </a>
         </div>
       </section>
