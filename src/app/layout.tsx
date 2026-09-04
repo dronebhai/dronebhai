@@ -21,11 +21,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://dronebhai.com"),
   title: {
-    default: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Repair Hub",
+    default: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Service Hub",
     template: "%s | Dronebhai",
   },
   description:
-    "Dronebhai is India's premier drone ecosystem: buy authentic DJI drones, custom industrial & FPV drone manufacturing, genuine spare parts, and certified DJI drone repair services across Ahmedabad.",
+    "Dronebhai is India's premier drone ecosystem: buy authentic DJI drones, custom industrial & FPV drone manufacturing, genuine spare parts, and certified DJI drone service services across Ahmedabad.",
   applicationName: "Dronebhai",
   authors: [{ name: "Dronebhai - Robuzta Techlabs", url: "https://dronebhai.com" }],
   creator: "Dronebhai",
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
   keywords: [
     "drone store india",
     "buy dji drone online",
-    "dji drone repair ahmedabad",
+    "dji drone service ahmedabad",
     "authorized dji service center india",
     "custom drone manufacturing",
     "fpv drone build",
     "agricultural spray drones",
     "cinematic camera drones",
     "drone spare parts shop",
-    "drone repair near me",
+    "drone service near me",
     "Dronebhai",
     "Robuzta Techlabs",
   ],
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Repair Hub",
+    title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Service Hub",
     description:
-      "Explore 16 drone categories, custom commercial drone manufacturing, and expert DJI repair services at Dronebhai's certified labs.",
+      "Explore 16 drone categories, custom commercial drone manufacturing, and expert DJI service services at Dronebhai's certified labs.",
     url: "https://dronebhai.com",
     siteName: "Dronebhai",
     locale: "en_IN",
@@ -66,15 +66,15 @@ export const metadata: Metadata = {
         url: "/images/hero-drone-flagship.jpg",
         width: 1200,
         height: 630,
-        alt: "Dronebhai — Premium Drone Sales, Custom Manufacturing and DJI Repair Services",
+        alt: "Dronebhai — Premium Drone Sales, Custom Manufacturing and DJI Service Services",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Repair Hub",
+    title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Service Hub",
     description:
-      "Premium drone sales, custom drone manufacturing, and expert DJI drone repair services in India.",
+      "Premium drone sales, custom drone manufacturing, and expert DJI drone service services in India.",
     images: ["/images/hero-drone-flagship.jpg"],
     creator: "@dronebhai",
   },
@@ -126,7 +126,7 @@ const rootStructuredData = {
       logo: "https://dronebhai.com/logo.png",
       image: "https://dronebhai.com/images/hero-drone-flagship.jpg",
       description:
-        "India's premier drone sales, custom drone manufacturing, and authorized DJI service & repair center.",
+        "India's premier drone sales, custom drone manufacturing, and authorized DJI service & service center.",
       telephone: "+91-8002800380",
       email: "contact@dronebhai.com",
       address: {
@@ -159,7 +159,7 @@ const rootStructuredData = {
     {
       "@type": "ElectronicsStore",
       "@id": "https://dronebhai.com/#south-bopal-branch",
-      name: "Dronebhai - South Bopal Flagship Drone Lab & Repair Center",
+      name: "Dronebhai - South Bopal Flagship Drone Lab & Service Center",
       url: "https://dronebhai.com/branches",
       telephone: "+91-8002800380",
       priceRange: "₹₹ - ₹₹₹₹",

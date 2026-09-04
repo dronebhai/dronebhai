@@ -3,99 +3,190 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-container w-full border-t border-outline-variant/50">
-      <div className="w-full py-12 md:py-16 px-gutter max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 font-body-md text-body-md text-on-surface-variant">
-        {/* Brand */}
-        <div className="flex flex-col items-start">
-          <Link
-            href="/"
-            className="flex items-center gap-3 mb-3"
-          >
+    <footer className="bg-surface-container w-full border-t border-outline-variant/40">
+      <div className="w-full py-12 md:py-16 px-gutter max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 font-body-md text-on-surface-variant">
+        {/* Brand & Identity */}
+        <div className="flex flex-col items-start lg:col-span-1 sm:col-span-2">
+          <Link href="/" className="flex items-center mb-4 group">
             <Image
-              src="/logo-removebg-preview.png"
-              alt="Dronebhai Emblem"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain"
+              src="/logo-with-font.png"
+              alt="Dronebhai"
+              width={260}
+              height={80}
+              style={{ width: "auto" }}
+              className="h-16 sm:h-20 w-auto object-contain transition-transform group-hover:scale-[1.02]"
             />
-            <span className="font-headline-md text-2xl font-bold tracking-tighter text-primary">
-              DRONEBHAI
-            </span>
           </Link>
-          <p className="text-sm opacity-90 leading-relaxed max-w-xs">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xs mb-4">
             Your Drone Partners in Precision. Authorized DJI Service Centre, Custom UAV Engineering &amp; Enterprise Drone Sales.
           </p>
-          <div className="mt-3 text-xs text-primary font-semibold">
-            Robuzta Techlabs Pvt. Ltd.
+          <div className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold bg-primary/10 px-2.5 py-1 rounded-full mb-3 border border-primary/20">
+            <span className="material-symbols-outlined text-[14px]">verified</span>
+            Sanuma India Pvt. Ltd.
+          </div>
+          <div className="text-xs text-slate-500 flex items-center gap-1.5">
+            <span className="material-symbols-outlined text-[15px] text-primary">schedule</span>
+            Mon–Sat: 11:00 AM – 7:00 PM
           </div>
         </div>
 
-        {/* Branches */}
-        <div className="flex flex-col gap-2">
-          <span className="font-label-md text-label-md text-on-background mb-1">
-            Branches
+        {/* DJI Services & Sales */}
+        <div className="flex flex-col gap-2.5">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1">
+            DJI &amp; Services
           </span>
           <Link
-            href="/branches"
-            className="hover:text-primary transition-colors opacity-80 hover:opacity-100 flex items-center gap-2"
+            href="/dji-service"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
           >
-            <span className="material-symbols-outlined text-sm">store</span>
-            South Bopal Lab
+            DJI Drone Services
           </Link>
           <Link
-            href="/branches"
-            className="hover:text-primary transition-colors opacity-80 hover:opacity-100 flex items-center gap-2"
+            href="/dji-sale"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
           >
-            <span className="material-symbols-outlined text-sm">store</span>
-            Tragad Lab
+            Buy DJI Drones
+          </Link>
+          <Link
+            href="/products"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
+          >
+            Custom UAV Builds
+          </Link>
+          <Link
+            href="/dji-service"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
+          >
+            Gimbal &amp; Sensor Calibration
           </Link>
         </div>
 
-        {/* Hours */}
-        <div className="flex flex-col gap-2">
-          <span className="font-label-md text-label-md text-on-background mb-1">
-            Hours
+        {/* Branches & Labs */}
+        <div className="flex flex-col gap-2.5">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1">
+            Branch Labs
           </span>
-          <span className="opacity-80 flex items-center gap-2">
-            <span className="material-symbols-outlined text-sm">schedule</span>
-            Mon–Sat 11AM–7PM
-          </span>
+          <Link
+            href="/branches/south-bopal"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
+          >
+            South Bopal Flagship Lab
+          </Link>
+          <Link
+            href="/branches/tragad"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
+          >
+            Tragad North Hub
+          </Link>
+          <Link
+            href="/branches"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
+          >
+            All Branch Locations
+          </Link>
+          <p className="text-[11px] text-slate-500 mt-1 leading-normal">
+            Serving Bopal, Chandkheda, GIFT City &amp; Gandhinagar
+          </p>
         </div>
 
-        {/* Contact */}
-        <div className="flex flex-col gap-2">
-          <span className="font-label-md text-label-md text-on-background mb-1">
-            Contact
+        {/* Company & SEO Links */}
+        <div className="flex flex-col gap-2.5">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1">
+            Navigation &amp; Index
+          </span>
+          <Link
+            href="/about"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
+          >
+            About Us
+          </Link>
+          <Link
+            href="/products"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
+          >
+            Products Catalog
+          </Link>
+          <Link
+            href="/sitemap"
+            className="text-xs sm:text-sm font-semibold text-primary hover:underline transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
+          >
+            HTML Sitemap
+          </Link>
+          <a
+            href="/sitemap.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
+          >
+            XML Sitemap
+          </a>
+        </div>
+
+        {/* Contact & Hotline */}
+        <div className="flex flex-col gap-3">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-0.5">
+            Contact &amp; Hotline
           </span>
           <a
             href="tel:8002800380"
-            className="font-button text-button text-primary opacity-80 hover:opacity-100 flex items-center gap-2"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-primary font-bold hover:brightness-110 transition-colors"
           >
-            <span className="material-symbols-outlined text-sm">phone</span>
+            <span className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-[16px]">phone</span>
+            </span>
             8002 8003 80
           </a>
           <a
             href="https://wa.me/918002800380"
             target="_blank"
             rel="noopener noreferrer"
-            className="opacity-80 hover:text-primary hover:opacity-100 flex items-center gap-2 transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-700 hover:text-primary transition-colors"
           >
-            <span className="material-symbols-outlined text-sm">chat</span>
-            WhatsApp
+            <span className="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-[16px]">chat</span>
+            </span>
+            WhatsApp Support
           </a>
           <a
             href="mailto:hello@dronebhai.com"
-            className="opacity-80 hover:text-primary hover:opacity-100 flex items-center gap-2 transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-700 hover:text-primary transition-colors"
           >
-            <span className="material-symbols-outlined text-sm">mail</span>
+            <span className="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-[16px]">mail</span>
+            </span>
             hello@dronebhai.com
           </a>
         </div>
       </div>
 
-      {/* Copyright bar */}
-      <div className="w-full max-w-7xl mx-auto px-gutter py-4 border-t border-outline-variant/30 text-center text-sm text-on-surface-variant opacity-60">
-        © {new Date().getFullYear()} Dronebhai. All Rights Reserved.
+      {/* Copyright & Bottom Quick Links bar */}
+      <div className="w-full border-t border-outline-variant/30 py-4">
+        <div className="max-w-7xl mx-auto px-gutter flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+          <div>
+            © {new Date().getFullYear()} Dronebhai. A unit of Sanuma India Pvt. Ltd. All Rights Reserved.
+          </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/sitemap" className="hover:text-primary transition-colors">
+              Sitemap
+            </Link>
+            <span>•</span>
+            <Link href="/dji-service" className="hover:text-primary transition-colors">
+              DJI Services
+            </Link>
+            <span>•</span>
+            <Link href="/dji-sale" className="hover:text-primary transition-colors">
+              DJI Sale
+            </Link>
+            <span>•</span>
+            <Link href="/branches" className="hover:text-primary transition-colors">
+              Branches
+            </Link>
+            <span>•</span>
+            <Link href="/about" className="hover:text-primary transition-colors">
+              About
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

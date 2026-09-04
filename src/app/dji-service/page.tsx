@@ -1,19 +1,20 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { djiModels, repairTypes } from "@/lib/data/dji-service";
+import { djiModels, serviceTypes } from "@/lib/data/dji-service";
 import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "DJI Drone Repair & Service Center in Ahmedabad | Dronebhai",
+  title: "DJI Drone Service & Service Center in Ahmedabad | Dronebhai",
   description:
-    "Authorized DJI drone repair & maintenance hub in Ahmedabad. Specializing in gimbal replacement, camera lens repair, ESC micro-soldering, crash recovery, water damage repair, and sensor calibration with genuine DJI OEM parts.",
+    "Authorized DJI drone service & maintenance hub in Ahmedabad. Specializing in gimbal replacement, camera lens service, ESC micro-soldering, crash recovery, water damage service, and sensor calibration with genuine DJI OEM parts.",
   alternates: {
     canonical: "/dji-service",
   },
   openGraph: {
-    title: "DJI Drone Repair & Service Center in Ahmedabad | Dronebhai",
+    title: "DJI Drone Service & Service Center in Ahmedabad | Dronebhai",
     description:
-      "Expert DJI drone repairs: Mini 4 Pro, Mini 3, Mavic 3, Air 3, Avata 2, Inspire 2. 100% genuine parts, 24-48h turnaround, and test-flight certified.",
+      "Expert DJI drone services: Mini 4 Pro, Mini 3, Mavic 3, Air 3, Avata 2, Inspire 2. 100% genuine parts, 24-48h turnaround, and test-flight certified.",
     url: "https://dronebhai.com/dji-service",
     siteName: "Dronebhai",
     images: [
@@ -21,15 +22,15 @@ export const metadata: Metadata = {
         url: "/images/drone-flagship-3d.jpg",
         width: 1200,
         height: 630,
-        alt: "Dronebhai DJI Drone Repair and Service Hub Ahmedabad",
+        alt: "Dronebhai DJI Drone Service and Service Hub Ahmedabad",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DJI Drone Repair & Service Center | Dronebhai",
+    title: "DJI Drone Service & Service Center | Dronebhai",
     description:
-      "Get your DJI drone diagnosed and repaired by certified engineers with OEM parts in Ahmedabad.",
+      "Get your DJI drone diagnosed and serviced by certified engineers with OEM parts in Ahmedabad.",
     images: ["/images/drone-flagship-3d.jpg"],
   },
 };
@@ -40,16 +41,16 @@ const djiServiceFaqs = [
     a: "We service all DJI consumer, enterprise, and FPV drones including DJI Mini 4 Pro, Mini 3 Pro, Mini 2 SE, Mavic 3 Pro, Mavic 3 Classic, Air 3, Air 2S, Avata 2, DJI FPV, Phantom 4 Pro, and Inspire 2.",
   },
   {
-    q: "How much does DJI drone repair cost in India?",
-    a: "Diagnostic inspections are fast and transparent. Minor repairs (arm swaps, propellers, ribbon cables) start from ₹1,499. Gimbal replacements, camera lens swaps, and ESC motherboard micro-soldering are quoted transparently based on OEM part costs.",
+    q: "How much does DJI drone service cost in India?",
+    a: "Diagnostic inspections are fast and transparent. Minor services (arm swaps, propellers, ribbon cables) start from ₹1,499. Gimbal replacements, camera lens swaps, and ESC motherboard micro-soldering are quoted transparently based on OEM part costs.",
   },
   {
     q: "Do you use authentic DJI spare parts?",
     a: "Yes, we exclusively use 100% genuine DJI OEM replacement components and parts, backed by a service warranty.",
   },
   {
-    q: "How fast can I get my DJI drone repaired?",
-    a: "Standard repair turnaround is 24 to 48 hours. Express same-day service is available for priority cases at our Ahmedabad South Bopal & Tragad labs.",
+    q: "How fast can I get my DJI drone serviced?",
+    a: "Standard service turnaround is 24 to 48 hours. Express same-day service is available for priority cases at our Ahmedabad South Bopal & Tragad labs.",
   },
 ];
 
@@ -75,16 +76,16 @@ const djiStructuredData = {
     },
     {
       "@type": "Service",
-      name: "Authorized DJI Drone Repair & Service Center",
+      name: "Authorized DJI Drone Service & Service Center",
       provider: { "@id": "https://dronebhai.com/#organization" },
       areaServed: [
         { "@type": "City", name: "Ahmedabad" },
         { "@type": "State", name: "Gujarat" },
         { "@type": "Country", name: "India" },
       ],
-      serviceType: "Electronics Drone Repair",
+      serviceType: "Electronics Drone Service",
       description:
-        "Comprehensive DJI drone repairs including gimbal realignment, camera replacement, ESC motherboard soldering, and IMU calibration.",
+        "Comprehensive DJI drone services including gimbal realignment, camera replacement, ESC motherboard soldering, and IMU calibration.",
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "INR",
@@ -109,15 +110,15 @@ const djiStructuredData = {
 const serviceOfferings = [
   {
     icon: "build",
-    title: "DJI Hardware Repair",
+    title: "DJI Hardware Service",
     subtitle: "Component replacement and crash recovery.",
     items: ["Gimbal & flex ribbon replacement", "Arm, shell & motor swaps", "Cracked lens replacement"],
   },
   {
     icon: "memory",
-    title: "Motherboard & ESC Repair",
+    title: "Motherboard & ESC Service",
     subtitle: "Component-level micro-soldering.",
-    items: ["ESC circuit repair & chip replacement", "Liquid & water damage ultrasonic wash", "Power management fixes"],
+    items: ["ESC circuit service & chip replacement", "Liquid & water damage ultrasonic wash", "Power management fixes"],
   },
   {
     icon: "troubleshoot",
@@ -129,16 +130,16 @@ const serviceOfferings = [
     icon: "sports_esports",
     title: "Controllers & Goggles",
     subtitle: "DJI RC & Goggles specialized care.",
-    items: ["Joystick stick-drift correction", "Cracked LCD screen replacement", "Antenna & signal booster repairs"],
+    items: ["Joystick stick-drift correction", "Cracked LCD screen replacement", "Antenna & signal booster services"],
   },
 ];
 
-const djiAllRepairsDirectory = [
+const djiAllServicesDirectory = [
   {
     category: "Gimbal & Camera",
     icon: "tune",
     symptoms: "Gimbal overload, jittery video, tilted camera, cracked lens.",
-    repairs: [
+    services: [
       "Gimbal Motor Jam & Overload Fix",
       "Flex Ribbon Cable Replacement",
       "Camera Lens Glass & Sensor Swap",
@@ -149,7 +150,7 @@ const djiAllRepairsDirectory = [
     category: "Frame & Arms",
     icon: "hardware",
     symptoms: "Broken motor arms, cracked shell, damaged landing gear.",
-    repairs: [
+    services: [
       "Front/Rear Motor Arm Swap",
       "Upper & Bottom Shell Replacement",
       "Landing Struts & Wire Routing",
@@ -160,7 +161,7 @@ const djiAllRepairsDirectory = [
     category: "ESC & Mainboard",
     icon: "memory",
     symptoms: "ESC status error, motor won't spin, power failure.",
-    repairs: [
+    services: [
       "ESC MOSFET Micro-Soldering",
       "Mainboard Circuit Tracing",
       "Power Management IC Soldering",
@@ -171,7 +172,7 @@ const djiAllRepairsDirectory = [
     category: "Vision & Sensors",
     icon: "sensors",
     symptoms: "Vision error, indoor drift, collision sensing disabled.",
-    repairs: [
+    services: [
       "Forward/Backward Vision Sensors",
       "Downward Optical Flow & ToF Setup",
       "Infrared Sensing Alignment",
@@ -182,7 +183,7 @@ const djiAllRepairsDirectory = [
     category: "Water Damage",
     icon: "water_drop",
     symptoms: "Fell in water/rain, won't turn on, corrosion marks.",
-    repairs: [
+    services: [
       "High-Frequency Ultrasonic Wash",
       "Board De-Oxidation & Neutralization",
       "Short Circuit Detection & Soldering",
@@ -193,18 +194,18 @@ const djiAllRepairsDirectory = [
     category: "Remotes & Goggles",
     icon: "sports_esports",
     symptoms: "Joystick drift, cracked screen, antenna broken, low battery.",
-    repairs: [
+    services: [
       "DJI RC Stick Potentiometer Fix",
       "Touchscreen LCD Replacement",
       "Internal Li-Ion Battery Swap",
-      "High-Gain Antenna Repair",
+      "High-Gain Antenna Service",
     ],
   },
   {
     category: "Firmware & Codes",
     icon: "system_update",
     symptoms: "Error 30007, 40003, stuck update, NFZ issues.",
-    repairs: [
+    services: [
       "Blackbox Flight Log Audit",
       "Firmware Unbricking & Factory Reset",
       "IMU & Accelerometer Tuning",
@@ -215,9 +216,9 @@ const djiAllRepairsDirectory = [
     category: "Battery Health",
     icon: "battery_charging_full",
     symptoms: "Battery deep sleep hibernation, swollen cells, drop in %.",
-    repairs: [
+    services: [
       "Deep Sleep BMS Wake-up",
-      "Battery Terminal Pin Repair",
+      "Battery Terminal Pin Service",
       "Internal Resistance Testing",
       "Charging Port Diagnostics",
     ],
@@ -228,7 +229,7 @@ const djiFleetSeries = [
   {
     series: "DJI Mini Series",
     models: ["Mini 4 Pro", "Mini 3 Pro", "Mini 3", "Mini 2 SE", "Mini 2", "Mavic Mini"],
-    highlight: "Ultra-lightweight gimbal ribbon, arms & obstacle sensor repairs.",
+    highlight: "Ultra-lightweight gimbal ribbon, arms & obstacle sensor services.",
   },
   {
     series: "DJI Mavic & Air Series",
@@ -251,21 +252,32 @@ export default function DjiServicePage() {
   return (
     <main className="bg-background text-on-background">
       <JsonLd data={djiStructuredData} />
+
+      <div className="max-w-7xl mx-auto px-gutter pt-8">
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "DJI Services" },
+          ]}
+          showSchema={false}
+        />
+      </div>
+
       {/* ============================================================
           HERO SECTION
           ============================================================ */}
-      <section className="pt-12 md:pt-20 pb-12 md:pb-16 px-gutter max-w-7xl mx-auto text-center relative">
+      <section className="pt-8 md:pt-12 pb-12 md:pb-16 px-gutter max-w-7xl mx-auto text-center relative">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
 
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-surface-container rounded-full mb-6 border border-outline-variant/40 shadow-xs">
           <span className="material-symbols-outlined text-primary text-base">verified</span>
           <span className="font-eyebrow text-xs text-primary uppercase tracking-widest font-bold">
-            Authorized DJI Repair &amp; Service Lab &bull; Ahmedabad
+            Authorized DJI Diagnostic &amp; Service Lab &bull; Ahmedabad
           </span>
         </div>
 
         <h1 className="font-headline-lg-mobile text-3xl sm:text-4xl md:text-5xl text-on-surface font-bold mb-6 max-w-4xl mx-auto tracking-tight">
-          Authorized DJI Drone Repair &amp; Diagnostic Center.
+          Authorized DJI Drone Service &amp; Diagnostic Center.
         </h1>
 
         <p className="font-body-lg text-base sm:text-lg text-on-surface-variant max-w-3xl mx-auto mb-10 leading-relaxed">
@@ -275,13 +287,13 @@ export default function DjiServicePage() {
         {/* Responsive CTAs */}
         <div className="flex flex-col sm:flex-row gap-3.5 justify-center max-w-xl mx-auto">
           <a
-            href="https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20need%20DJI%20drone%20repair%20assistance"
+            href="https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20need%20DJI%20drone%20service%20assistance"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 min-h-[48px] bg-primary text-on-primary font-button text-sm uppercase px-6 py-3.5 rounded-xl flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_4px_16px_rgba(0,104,94,0.35)] font-bold text-center"
           >
             <span className="material-symbols-outlined text-lg">chat</span>
-            <span>Book Repair via WhatsApp</span>
+            <span>Book Service via WhatsApp</span>
           </a>
 
           <a
@@ -296,7 +308,7 @@ export default function DjiServicePage() {
         {/* Policy Highlight */}
         <div className="mt-8 inline-flex items-center gap-2 bg-primary/10 text-primary border border-primary/20 rounded-xl px-4 py-2 text-xs font-semibold">
           <span className="material-symbols-outlined text-sm">info</span>
-          <span>We repair ANY DJI drone regardless of where it was purchased (international &amp; pre-owned included).</span>
+          <span>We service ANY DJI drone regardless of where it was purchased (international &amp; pre-owned included).</span>
         </div>
       </section>
 
@@ -345,25 +357,25 @@ export default function DjiServicePage() {
       </section>
 
       {/* ============================================================
-          SHOW ALL AVAILABLE DJI SERVICES & REPAIRS (Detailed Breakdown)
+          SHOW ALL AVAILABLE DJI SERVICES & SERVICES (Detailed Breakdown)
           ============================================================ */}
       <section className="py-14 md:py-20 bg-surface-bright border-y border-outline-variant/30">
         <div className="max-w-7xl mx-auto px-gutter">
           <div className="text-center mb-10 max-w-2xl mx-auto">
             <span className="font-eyebrow text-xs text-primary uppercase tracking-widest font-bold block mb-1">
-              Repair Directory
+              Service Directory
             </span>
             <h2 className="font-headline text-2xl sm:text-3xl text-slate-900 font-bold mb-2">
-              All Available DJI Repairs
+              All Available DJI Services
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               Genuine OEM components &amp; certified calibration for every DJI drone model.
             </p>
           </div>
 
-          {/* Grid of All Specific DJI Repair Types */}
+          {/* Grid of All Specific DJI Service Types */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {djiAllRepairsDirectory.map((rep, idx) => (
+            {djiAllServicesDirectory.map((rep, idx) => (
               <div
                 key={idx}
                 className="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-6 flex flex-col justify-between hover:shadow-xl hover:border-primary/50 transition-all duration-300"
@@ -384,13 +396,13 @@ export default function DjiServicePage() {
                     {rep.symptoms}
                   </div>
 
-                  {/* List of Specific Repairs */}
+                  {/* List of Specific Services */}
                   <div className="mb-6">
                     <span className="font-bold text-xs text-on-background uppercase tracking-wider block mb-2">
-                      Specific Repairs Performed:
+                      Specific Services Performed:
                     </span>
                     <ul className="space-y-1.5 text-xs text-on-surface-variant">
-                      {rep.repairs.map((r, i) => (
+                      {rep.services.map((r, i) => (
                         <li key={i} className="flex items-start gap-1.5">
                           <span className="material-symbols-outlined text-primary text-xs shrink-0 mt-0.5">check</span>
                           <span>{r}</span>
@@ -407,7 +419,7 @@ export default function DjiServicePage() {
                   className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-on-primary text-xs font-bold py-2.5 px-3 rounded-lg text-center transition-colors flex items-center justify-center gap-1.5"
                 >
                   <span className="material-symbols-outlined text-sm">chat</span>
-                  <span>Enquire for this Repair</span>
+                  <span>Enquire for this Service</span>
                 </a>
               </div>
             ))}
@@ -416,7 +428,7 @@ export default function DjiServicePage() {
           {/* Supported Fleet Breakdown */}
           <div className="bg-surface-container-low rounded-3xl p-8 border border-outline-variant/40">
             <h3 className="font-headline-md text-xl md:text-2xl text-on-background font-bold mb-6 text-center">
-              All DJI Drone Models Repaired &amp; Serviced
+              All DJI Drone Models Serviced &amp; Serviced
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {djiFleetSeries.map((fleet, i) => (
@@ -445,7 +457,7 @@ export default function DjiServicePage() {
       </section>
 
       {/* ============================================================
-          MODEL SELECTOR & REPAIR COMBINATIONS
+          MODEL SELECTOR & SERVICE COMBINATIONS
           ============================================================ */}
       <section className="py-14 md:py-20 max-w-7xl mx-auto px-gutter">
         <div className="text-center mb-12">
@@ -456,7 +468,7 @@ export default function DjiServicePage() {
             Select Your DJI Model for Quick Specs &amp; Pricing
           </h2>
           <p className="font-body-md text-sm text-on-surface-variant max-w-xl mx-auto">
-            Click on any model to view common error codes, repair turnaround times, and pricing estimates.
+            Click on any model to view common error codes, service turnaround times, and pricing estimates.
           </p>
         </div>
 
@@ -476,7 +488,7 @@ export default function DjiServicePage() {
                 </h3>
               </div>
               <div className="flex flex-wrap gap-1.5">
-                {repairTypes.slice(0, 3).map((rt) => (
+                {serviceTypes.slice(0, 3).map((rt) => (
                   <Link
                     key={rt.slug}
                     href={`/dji-service/${model.slug}/${rt.slug}`}
@@ -501,10 +513,10 @@ export default function DjiServicePage() {
               Transparent Workflow
             </span>
             <h2 className="font-headline-md text-2xl sm:text-3xl text-on-background font-bold mb-3">
-              Our 5-Stage DJI Repair Protocol
+              Our 5-Stage DJI Service Protocol
             </h2>
             <p className="font-body-md text-sm text-on-surface-variant">
-              Every DJI drone is repaired following aerospace-grade standard operating procedures.
+              Every DJI drone is serviced following aerospace-grade standard operating procedures.
             </p>
           </div>
 
@@ -512,7 +524,7 @@ export default function DjiServicePage() {
             {[
               { step: "01", title: "Intake & Log Audit", desc: "Inspection of flight blackbox data & visible damage." },
               { step: "02", title: "Free Diagnostic Quote", desc: "Written estimate sent on WhatsApp within 2–4 hours." },
-              { step: "03", title: "OEM Cleanroom Repair", desc: "Component replacement with genuine DJI factory parts." },
+              { step: "03", title: "OEM Cleanroom Service", desc: "Component replacement with genuine DJI factory parts." },
               { step: "04", title: "Sensor Calibration", desc: "DJI Assistant 2 optical flow & IMU bench alignment." },
               { step: "05", title: "15-Point Test Flight", desc: "Outdoor flight test, certificate & safe handover." },
             ].map((st, i) => (
@@ -533,7 +545,7 @@ export default function DjiServicePage() {
         <div className="bg-inverse-surface text-white rounded-3xl p-8 sm:p-12 border border-outline-variant/30 shadow-2xl relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto">
             <span className="font-eyebrow text-xs uppercase tracking-widest text-primary-fixed block mb-2 font-bold">
-              Fast Repair Dispatch
+              Fast Service Dispatch
             </span>
             <h2 className="font-headline-md text-2xl sm:text-3xl md:text-4xl text-white font-bold mb-4">
               Get Your DJI Drone Back In The Sky
@@ -544,7 +556,7 @@ export default function DjiServicePage() {
 
             <div className="w-full max-w-xl mx-auto flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5">
               <a
-                href="https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20want%20to%20book%20a%20DJI%20repair"
+                href="https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20want%20to%20book%20a%20DJI%20service"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 min-h-[50px] bg-primary text-on-primary font-button text-sm uppercase px-6 py-3.5 rounded-xl flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_4px_16px_rgba(0,104,94,0.4)] font-bold text-center"

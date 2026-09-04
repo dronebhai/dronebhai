@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { productCategories } from "@/lib/data/categories";
-import { getAllRepairCombinations } from "@/lib/data/dji-service";
+import { getAllServiceCombinations } from "@/lib/data/dji-service";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://dronebhai.com";
@@ -27,7 +27,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${baseUrl}/dji-sale`,
+      lastModified: currentDate,
+      changeFrequency: "daily",
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/branches`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/branches/south-bopal`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/branches/tragad`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.85,
@@ -37,6 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/sitemap`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.7,
     },
   ];
 
@@ -48,14 +72,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // All DJI repair service matrix combinations (e.g. mini-4-pro/gimbal-replacement)
-  const repairCombinations = getAllRepairCombinations();
-  const repairRoutes: MetadataRoute.Sitemap = repairCombinations.map((combo) => ({
-    url: `${baseUrl}/dji-service/${combo.model}/${combo.repairType}`,
-    lastModified: currentDate,
-    changeFrequency: "weekly",
-    priority: 0.8,
+  // All DJI service service matrix combinations (e.g. mini-4-pro/gimbal-replacement)
+  const serviceCombinations = getAllServiceCombinations();
+  const serviceRoutes: MetadataRoute.Sitemap = serviceCombinations.map((combo) => ({
+    url: `${baseUrl}/dji-service/${combo.model}/${combo.serviceType}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...repairRoutes];
+  return [...staticRoutes, ...categoryRoutes, ...serviceRoutes];
 }

@@ -6,6 +6,7 @@ import {
   getCategoryBySlug,
 } from "@/lib/data/categories";
 import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -111,8 +112,23 @@ export default async function CategoryPage({ params }: Props) {
   return (
     <main className="bg-background text-on-background min-h-screen">
       <JsonLd data={categoryStructuredData} />
+
+      {/* ── Breadcrumb Navigation ── */}
+      <div className="bg-surface-container-low/60 border-b border-outline-variant/30">
+        <div className="max-w-7xl mx-auto px-gutter py-2">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Products Catalog", href: "/products" },
+              { label: cat.label },
+            ]}
+            showSchema={false}
+          />
+        </div>
+      </div>
+
       {/* ── Hero Banner ───────────────────────────────────── */}
-      <section className="relative w-full min-h-[480px] md:min-h-[540px] flex items-center justify-center text-center overflow-hidden py-16">
+      <section className="relative w-full min-h-[440px] md:min-h-[500px] flex items-center justify-center text-center overflow-hidden py-16">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0 scale-105 filter brightness-[0.4] transition-all duration-700"

@@ -6,16 +6,16 @@ import { productCategories } from "@/lib/data/categories";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Repair Center",
+  title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Service Center",
   description:
-    "Buy authentic DJI drones, custom industrial & FPV drones, precision agricultural UAVs, and get certified DJI drone repair services across Ahmedabad, Gujarat, India.",
+    "Buy authentic DJI drones, custom industrial & FPV drones, precision agricultural UAVs, and get certified DJI drone service services across Ahmedabad, Gujarat, India.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Repair Center",
+    title: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Service Center",
     description:
-      "Buy authentic DJI drones, custom industrial & FPV drones, precision agricultural UAVs, and get certified DJI drone repair services across Ahmedabad, Gujarat, India.",
+      "Buy authentic DJI drones, custom industrial & FPV drones, precision agricultural UAVs, and get certified DJI drone service services across Ahmedabad, Gujarat, India.",
     url: "https://dronebhai.com",
     siteName: "Dronebhai",
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/images/hero-drone-flagship.jpg",
         width: 1200,
         height: 630,
-        alt: "Dronebhai India - Drone Sales, Manufacturing and Repair",
+        alt: "Dronebhai India - Drone Sales, Manufacturing and Service",
       },
     ],
   },
@@ -35,8 +35,8 @@ const homeFaqs = [
     a: "Yes. We diagnose and service any DJI drone regardless of where it was purchased in India or internationally.",
   },
   {
-    q: "How long does a repair take in Ahmedabad?",
-    a: "Standard repairs are completed within 24–48 hours. Express diagnostics are completed in 2–4 hours at our South Bopal and Tragad labs.",
+    q: "How long does a service take in Ahmedabad?",
+    a: "Standard services are completed within 24–48 hours. Express diagnostics are completed in 2–4 hours at our South Bopal and Tragad labs.",
   },
   {
     q: "Can I ship my drone from outside Ahmedabad?",
@@ -59,9 +59,9 @@ const homeStructuredData = {
       "@type": "WebPage",
       "@id": "https://dronebhai.com/#webpage",
       url: "https://dronebhai.com",
-      name: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Repair Center",
+      name: "Dronebhai | India's #1 Drone Sales, Custom Manufacturing & DJI Service Center",
       description:
-        "India's premier drone ecosystem: buy authentic DJI drones, custom industrial & FPV drone manufacturing, genuine spare parts, and certified DJI drone repair services.",
+        "India's premier drone ecosystem: buy authentic DJI drones, custom industrial & FPV drone manufacturing, genuine spare parts, and certified DJI drone service services.",
       isPartOf: { "@id": "https://dronebhai.com/#website" },
       about: { "@id": "https://dronebhai.com/#organization" },
     },
@@ -79,10 +79,10 @@ const homeStructuredData = {
     },
     {
       "@type": "Service",
-      name: "DJI Drone Repair & Maintenance Service",
+      name: "DJI Drone Service & Maintenance Service",
       provider: { "@id": "https://dronebhai.com/#organization" },
       areaServed: "India",
-      serviceType: "Drone Repair",
+      serviceType: "Drone Service",
       description:
         "Professional diagnosis, gimbal replacement, ESC micro-soldering, arm replacement, and optical sensor calibration for all DJI drone models.",
     },
@@ -101,6 +101,8 @@ const homeStructuredData = {
 const HeroAnimatedDrone = dynamic(
   () => import("@/components/HeroAnimatedDrone")
 );
+
+import EngineeringReliabilityInfographic from "@/components/EngineeringReliabilityInfographic";
 
 export default function HomePage() {
   const featuredCategories = [
@@ -121,15 +123,15 @@ export default function HomePage() {
           1. HERO SECTION (Minimalist White Theme Showcase)
           ============================================================ */}
       <section className="relative w-full min-h-[480px] lg:min-h-[560px] flex items-center justify-center bg-white text-slate-900 py-4 lg:py-6 select-none border-b border-outline-variant/20">
-        
+
         {/* ── Background Subtle Light Grid & Giant Watermark ── */}
         <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
           {/* Subtle Light HUD Grid */}
           <div className="absolute inset-0 hud-grid opacity-25" />
-          
+
           {/* Soft Ambient Radial Spotlight Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[750px] h-[400px] bg-gradient-to-tr from-[#ff6200]/10 via-primary/8 to-transparent rounded-full blur-[100px] animate-pulse-glow" />
-          
+
           {/* Giant Backdrop Watermark (Light Theme) */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-0">
             <span className="text-6xl sm:text-8xl md:text-[130px] lg:text-[170px] xl:text-[210px] font-black uppercase tracking-tighter text-stroke-watermark-light font-headline opacity-70 block leading-none">
@@ -140,12 +142,12 @@ export default function HomePage() {
 
         {/* ── Main Stage Container: 2-Column Hero ── */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 w-full">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[460px] lg:min-h-[540px]">
-            
+
             {/* ── Left Column: Title, Narrative & Action Triggers (5 Cols) ── */}
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left z-20 order-1">
-              
+
               {/* Main Stacked Headline */}
               <h1 className="font-headline text-4xl sm:text-5xl lg:text-[50px] xl:text-[58px] font-bold tracking-tight text-slate-900 leading-[1.05] mb-4">
                 Accuracy
@@ -180,28 +182,9 @@ export default function HomePage() {
                   <span>8002 8003 80</span>
                 </a>
 
-                <Link
-                  href="/products"
-                  className="text-primary hover:text-primary/80 font-button text-xs uppercase px-4 py-3.5 rounded-full flex items-center gap-1.5 font-bold transition-colors"
-                >
-                  <span>Discover Fleet</span>
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                </Link>
               </div>
 
               {/* Minimal Stat Highlight */}
-              <div className="flex items-center gap-2.5 text-left pt-1">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                </span>
-                <span className="text-2xl sm:text-3xl font-black text-primary font-headline">
-                  &gt;98%
-                </span>
-                <span className="text-xs text-slate-600 font-medium">
-                  Flight Precision &amp; Stability Certified
-                </span>
-              </div>
 
             </div>
 
@@ -293,7 +276,7 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          3. DJI CARE (Authorized Workshop & Repair Center)
+          3. DJI CARE (Authorized Workshop & Service Center)
           ============================================================ */}
       <section className="py-12 md:py-16 bg-surface hud-grid relative">
         <div className="max-w-7xl mx-auto px-gutter">
@@ -303,14 +286,14 @@ export default function HomePage() {
               Authorized Center
             </span>
             <h2 className="font-headline text-2xl sm:text-3xl text-slate-900 font-bold mb-2">
-              Expert DJI Care &amp; Repair
+              Expert DJI Care &amp; Service
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Factory-grade cleanroom repairs in Ahmedabad with 100% genuine OEM components for any DJI drone.
+              Factory-grade cleanroom services in Ahmedabad with 100% genuine OEM components for any DJI drone.
             </p>
           </div>
 
-          {/* Bento Grid of Core DJI Repair Offerings */}
+          {/* Bento Grid of Core DJI Service Offerings */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
             <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 hover:shadow-md transition-all">
               <span className="material-symbols-outlined text-primary text-2xl mb-3 block">build</span>
@@ -324,7 +307,7 @@ export default function HomePage() {
             </div>
 
             <div className="bg-slate-900 text-white rounded-2xl p-5 shadow-lg border border-primary/30">
-              <span className="material-symbols-outlined text-primary-fixed text-2xl mb-3 block">home_repair_service</span>
+              <span className="material-symbols-outlined text-primary-fixed text-2xl mb-3 block">build</span>
               <h3 className="text-base font-bold text-white mb-1.5">Gimbal &amp; Crash Fix</h3>
               <p className="text-xs text-slate-300 leading-relaxed mb-3">
                 Gimbal ribbon cables, broken motor arms, cracked shells, and optical camera glass.
@@ -336,7 +319,7 @@ export default function HomePage() {
 
             <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 hover:shadow-md transition-all">
               <span className="material-symbols-outlined text-primary text-2xl mb-3 block">memory</span>
-              <h3 className="text-base font-bold text-slate-900 mb-1.5">ESC &amp; Board Repair</h3>
+              <h3 className="text-base font-bold text-slate-900 mb-1.5">ESC &amp; Board Service</h3>
               <p className="text-xs text-slate-600 leading-relaxed mb-3">
                 Component micro-soldering, ultrasonic liquid wash, and power management recovery.
               </p>
@@ -370,7 +353,7 @@ export default function HomePage() {
                 Service Directory
               </Link>
               <a
-                href="https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20need%20DJI%20drone%20repair%20service"
+                href="https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20need%20DJI%20drone%20service"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 sm:flex-initial bg-surface text-primary border border-primary/40 font-button text-xs uppercase px-4 py-2.5 rounded-lg hover:bg-primary/5 transition-all font-bold text-center"
@@ -417,7 +400,7 @@ export default function HomePage() {
               <div className="text-primary font-bold text-2xl opacity-40 mb-1">03</div>
               <h3 className="text-base font-bold text-slate-900 mb-1">Cleanroom Fix</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Factory-grade repair using 100% genuine OEM components.
+                Factory-grade service using 100% genuine OEM components.
               </p>
             </div>
 
@@ -433,46 +416,9 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          5. WHY CHOOSE US (Trust & Authority)
+          5. WHY CHOOSE US (Trust & Authority — Infographic Architecture)
           ============================================================ */}
-      <section className="py-12 md:py-16 bg-surface">
-        <div className="max-w-7xl mx-auto px-gutter">
-          <div className="text-center mb-10 max-w-xl mx-auto">
-            <span className="font-eyebrow text-xs text-primary uppercase tracking-widest block mb-1 font-bold">
-              Why Choose Us
-            </span>
-            <h2 className="font-headline text-2xl sm:text-3xl text-slate-900 font-bold">
-              Engineered for Reliability
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: "verified", title: "100% Genuine OEM Parts", desc: "Factory-certified components ensuring authentic flight safety." },
-              { icon: "science", title: "2 Ahmedabad Cleanrooms", desc: "Equipped with static-free workbenches in South Bopal & Tragad." },
-              { icon: "engineering", title: "Aerospace R&D Team", desc: "Backed by Robuzta Techlabs across 16 drone categories." },
-              { icon: "speed", title: "Fast 24–48h Turnaround", desc: "Quick diagnostics and swift resolution for commercial pilots." },
-              { icon: "support_agent", title: "Live WhatsApp Updates", desc: "Direct video and photo progress from your repair engineer." },
-              { icon: "security", title: "30-Day Service Warranty", desc: "Comprehensive coverage on all repair work and parts." },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
-                  <span className="material-symbols-outlined text-xl">{item.icon}</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-900 mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <EngineeringReliabilityInfographic />
 
       {/* ============================================================
           6. CUSTOMER REVIEWS (Social Proof)
@@ -494,7 +440,7 @@ export default function HomePage() {
                 name: "Karan Mehta",
                 role: "Cinematographer, Ahmedabad",
                 drone: "DJI Mavic 3 Pro",
-                review: "Gimbal and arm repaired with genuine parts within 24 hours. Saved my wedding shoot season.",
+                review: "Gimbal and arm serviced with genuine parts within 24 hours. Saved my wedding shoot season.",
               },
               {
                 name: "Ramesh Patel",
@@ -561,8 +507,8 @@ export default function HomePage() {
                 a: "Yes. We diagnose and service any DJI drone regardless of where it was purchased.",
               },
               {
-                q: "How long does a repair take in Ahmedabad?",
-                a: "Standard repairs are completed within 24–48 hours. Diagnostics take 2–4 hours.",
+                q: "How long does a service take in Ahmedabad?",
+                a: "Standard services are completed within 24–48 hours. Diagnostics take 2–4 hours.",
               },
               {
                 q: "Can I ship my drone from outside Ahmedabad?",

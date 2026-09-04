@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { productCategories } from "@/lib/data/categories";
 import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "All Drone Categories & UAV Catalog | Dronebhai India",
@@ -70,8 +71,17 @@ export default function ProductsPage() {
       <JsonLd data={productsStructuredData} />
       
       {/* ── Page Header ───────────────────────────────────── */}
-      <section className="pt-10 md:pt-20 pb-10 md:pb-16 px-gutter max-w-7xl mx-auto relative overflow-hidden">
+      <section className="pt-8 md:pt-16 pb-10 md:pb-16 px-gutter max-w-7xl mx-auto relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none" />
+        <div className="relative z-10 mb-6">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Products Catalog" },
+            ]}
+            showSchema={false}
+          />
+        </div>
         <div className="relative z-10">
           <span className="font-eyebrow text-eyebrow text-primary uppercase tracking-widest flex items-center gap-3 mb-4">
             <span className="h-px w-8 bg-primary inline-block" />

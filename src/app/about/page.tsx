@@ -1,18 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "About Us | Dronebhai — India's Premier Drone Engineering & Service Labs",
   description:
-    "Learn about Dronebhai's aerospace legacy since 2016. Discover our cleanroom drone labs in Ahmedabad, custom UAV manufacturing capabilities, and DJI authorized repair certifications.",
+    "Learn about Dronebhai's aerospace legacy since 2016. Discover our cleanroom drone labs in Ahmedabad, custom UAV manufacturing capabilities, and DJI authorized service certifications.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Dronebhai — Precision Drone Labs & Engineering",
     description:
-      "Ahmedabad's leading drone specialists. Authorized DJI repair centre and custom industrial drone manufacturers.",
+      "Ahmedabad's leading drone specialists. Authorized DJI service centre and custom industrial drone manufacturers.",
     url: "https://dronebhai.com/about",
     siteName: "Dronebhai",
     images: [
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "About Dronebhai — Precision Drone Labs",
-    description: "Learn about Dronebhai's certified DJI repair labs and custom UAV manufacturing.",
+    description: "Learn about Dronebhai's certified DJI service labs and custom UAV manufacturing.",
     images: ["/images/about-lab.jpg"],
   },
 };
@@ -75,27 +76,27 @@ const stats = [
 const values = [
   {
     icon: "verified",
-    title: "Certified Excellence",
+    title: "Authorized Certification",
     description:
-      "Every repair is backed by DJI-certified training and genuine OEM parts.",
+      "All diagnostics, firmware updates, and physical services follow strict factory guidelines using genuine OEM parts.",
   },
   {
-    icon: "science",
-    title: "Technical Precision",
+    icon: "clean_hands",
+    title: "Cleanroom Facility",
     description:
-      "Our dust-free labs mirror aerospace-grade maintenance environments.",
+      "Our dust-free cleanroom benches ensure zero particulate contamination during sensor, camera, and gimbal services.",
   },
   {
-    icon: "handshake",
-    title: "Partner-First Approach",
+    icon: "psychology",
+    title: "Aerospace Precision",
     description:
-      "We believe in long-term relationships built on trust, transparency, and results.",
+      "From custom carbon fiber airframes to calibrated flight controllers, every drone is built to exact tolerances.",
   },
   {
-    icon: "lightbulb",
-    title: "Constant Innovation",
+    icon: "support_agent",
+    title: "Dedicated Aftercare",
     description:
-      "From custom manufacturing to emerging drone tech — we stay at the frontier.",
+      "We provide post-service calibration reports, flight logs, and continuous technical support for every client.",
   },
 ];
 
@@ -107,6 +108,16 @@ export default function AboutPage() {
       <section className="relative pt-16 md:pt-24 pb-section-gap-mobile md:pb-section-gap-desktop px-gutter max-w-7xl mx-auto overflow-hidden">
         {/* Background decorative grid */}
         <div className="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none" />
+
+        <div className="relative z-10 mb-6">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "About Us" },
+            ]}
+            showSchema={false}
+          />
+        </div>
 
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Left — Copy */}
@@ -125,10 +136,10 @@ export default function AboutPage() {
               genuine parts, and honest advice.
             </p>
             <p className="font-body-md text-body-md text-on-surface-variant mb-8">
-              Operating under Robuzta Techlabs, we cover the full aerial
+              Operating under Sanuma India Pvt. Ltd., we cover the full aerial
               ecosystem — premium drone sales across 16 categories, custom
               manufacturing for enterprise and defence clients, and an
-              authorised DJI certification center for repairs, diagnostics, and
+              authorised DJI certification center for services, diagnostics, and
               maintenance.
             </p>
             <Link
@@ -146,7 +157,7 @@ export default function AboutPage() {
           <div className="rounded-2xl overflow-hidden border border-outline-variant/40 bg-surface-container shadow-lg relative group">
             <img
               src="/images/about-lab.jpg"
-              alt="Dronebhai aerospace engineer performing precision drone repairs in our Ahmedabad cleanroom facility"
+              alt="Dronebhai aerospace engineer performing precision drone services in our Ahmedabad cleanroom facility"
               className="w-full h-80 md:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-3 rounded-xl border border-outline-variant/30 text-xs text-on-surface flex items-center gap-2">
@@ -219,10 +230,10 @@ export default function AboutPage() {
               Authorized Center
             </p>
             <h3 className="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-primary mb-4">
-              DJI-Certified Service &amp; Repair
+              DJI-Certified Diagnostics &amp; Service
             </h3>
             <p className="font-body-lg text-body-lg text-surface-container-low">
-              Expert diagnostics, firmware updates, and physical repairs
+              Expert diagnostics, firmware updates, and physical services
               conducted by factory-trained technicians using authorized parts in
               our dust-free facility.
             </p>
@@ -236,61 +247,6 @@ export default function AboutPage() {
             <span className="material-symbols-outlined text-sm">
               arrow_forward
             </span>
-          </Link>
-        </div>
-      </section>
-
-      {/* ── Trusted Presence — Labs ───────────────────────── */}
-      <section className="mb-section-gap-mobile md:mb-section-gap-desktop bg-grid-pattern border-y border-outline-variant/30 py-16">
-        <div className="max-w-4xl mx-auto text-center mb-12 px-gutter">
-          <h2 className="font-headline-md text-headline-md text-on-surface mb-4">
-            Trusted Presence in Ahmedabad
-          </h2>
-          <p className="font-body-md text-body-md text-on-surface-variant">
-            Operating from two state-of-the-art facilities, ensuring prompt
-            service and accessible expertise for all our clients.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto px-gutter">
-          {/* South Bopal */}
-          <Link
-            href="/branches"
-            className="bg-surface p-6 rounded-xl border border-outline-variant flex gap-4 hover:border-primary/50 hover:shadow-md transition-all"
-          >
-            <div className="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-primary">
-                location_on
-              </span>
-            </div>
-            <div>
-              <h4 className="font-label-md text-label-md text-on-surface mb-1">
-                South Bopal Lab
-              </h4>
-              <p className="font-body-md text-body-md text-on-surface-variant text-sm">
-                Primary technical hub and major repairs center.
-              </p>
-            </div>
-          </Link>
-
-          {/* Tragad */}
-          <Link
-            href="/branches"
-            className="bg-surface p-6 rounded-xl border border-outline-variant flex gap-4 hover:border-primary/50 hover:shadow-md transition-all"
-          >
-            <div className="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-primary">
-                storefront
-              </span>
-            </div>
-            <div>
-              <h4 className="font-label-md text-label-md text-on-surface mb-1">
-                Tragad Lab
-              </h4>
-              <p className="font-body-md text-body-md text-on-surface-variant text-sm">
-                Retail experience center and quick service desk.
-              </p>
-            </div>
           </Link>
         </div>
       </section>

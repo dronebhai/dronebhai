@@ -312,7 +312,7 @@ export const productCategories: ProductCategory[] = [
     ],
     faqs: [
       { q: "Is this BNF (Bind-and-Fly) or RTF (Ready-to-Fly)?", a: "We offer both BNF (drone only) and complete RTF bundles with goggles and radio controller." },
-      { q: "Can Dronebhai replace broken arms after crashes?", a: "Yes, our South Bopal and Tragad labs carry full crash replacement parts and offer same-day repairs." },
+      { q: "Can Dronebhai replace broken arms after crashes?", a: "Yes, our South Bopal and Tragad labs carry full crash replacement parts and offer same-day services." },
     ],
   },
   {
