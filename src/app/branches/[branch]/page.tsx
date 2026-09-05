@@ -228,12 +228,12 @@ export default async function BranchDetailPage({ params }: Props) {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 w-full">
                 <a
                   href={branch.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary text-white font-button text-xs uppercase px-5 py-3 rounded-xl font-bold hover:brightness-110 transition-all flex items-center gap-2 shadow-sm"
+                  className="w-full sm:w-auto min-h-[44px] bg-primary text-white font-button text-xs uppercase px-5 py-3 rounded-xl font-bold hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-sm text-center"
                 >
                   <span className="material-symbols-outlined text-base">directions</span>
                   <span>Get Driving Directions</span>
@@ -243,7 +243,7 @@ export default async function BranchDetailPage({ params }: Props) {
                   href={waUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-surface-container text-primary hover:bg-surface-container-high font-button text-xs uppercase px-5 py-3 rounded-xl font-bold transition-all flex items-center gap-2 border border-outline-variant/40"
+                  className="w-full sm:w-auto min-h-[44px] bg-surface-container text-primary hover:bg-surface-container-high font-button text-xs uppercase px-5 py-3 rounded-xl font-bold active:scale-[0.98] transition-all flex items-center justify-center gap-2 border border-outline-variant/40 text-center"
                 >
                   <span className="material-symbols-outlined text-base">chat</span>
                   <span>WhatsApp Lab</span>
@@ -251,7 +251,7 @@ export default async function BranchDetailPage({ params }: Props) {
 
                 <a
                   href="tel:8002800380"
-                  className="bg-surface text-slate-700 hover:bg-surface-container font-button text-xs uppercase px-4 py-3 rounded-xl font-bold transition-all flex items-center gap-1.5 border border-outline-variant/40"
+                  className="w-full sm:w-auto min-h-[44px] bg-surface text-slate-700 hover:bg-surface-container font-button text-xs uppercase px-4 py-3 rounded-xl font-bold active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 border border-outline-variant/40 text-center"
                 >
                   <span className="material-symbols-outlined text-base text-primary">phone</span>
                   <span>Call 8002 8003 80</span>

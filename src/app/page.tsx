@@ -162,26 +162,25 @@ export default function HomePage() {
                 Meet the future of cinematic aerial exploration, bespoke industrial UAVs &amp; authorized DJI drone care.
               </p>
 
-              {/* Actions Row: WhatsApp + Call + Discover */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
+              {/* Actions Row: WhatsApp + Call */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 mb-6 w-full max-w-xs sm:max-w-none">
                 <a
                   href="https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20want%20to%20inquire%20about%20drone%20sales/service"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary hover:bg-primary/90 text-white font-button text-xs uppercase px-6 py-3.5 rounded-full flex items-center gap-2 shadow-[0_4px_16px_rgba(0,104,94,0.25)] hover:shadow-[0_6px_20px_rgba(0,104,94,0.35)] transition-all font-bold"
+                  className="w-full sm:w-auto min-h-[46px] bg-primary hover:bg-primary/90 text-white font-button text-xs uppercase px-6 py-3.5 rounded-xl sm:rounded-full flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(0,104,94,0.25)] hover:shadow-[0_6px_20px_rgba(0,104,94,0.35)] active:scale-[0.98] transition-all font-bold"
                 >
                   <span className="material-symbols-outlined text-base">chat</span>
-                  <span>WhatsApp</span>
+                  <span>WhatsApp Chat</span>
                 </a>
 
                 <a
                   href="tel:8002800380"
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-800 font-button text-xs uppercase px-5 py-3.5 rounded-full flex items-center gap-2 border border-slate-200 transition-colors font-semibold"
+                  className="w-full sm:w-auto min-h-[46px] bg-slate-100 hover:bg-slate-200 text-slate-800 font-button text-xs uppercase px-5 py-3.5 rounded-xl sm:rounded-full flex items-center justify-center gap-2 border border-slate-200 active:scale-[0.98] transition-all font-semibold"
                 >
                   <span className="material-symbols-outlined text-sm text-primary">phone</span>
                   <span>8002 8003 80</span>
                 </a>
-
               </div>
 
               {/* Minimal Stat Highlight */}
@@ -558,12 +557,12 @@ export default function HomePage() {
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
                 <a
                   href="https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20am%20looking%20for%20drone%20assistance"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-button text-xs uppercase px-6 py-3 rounded-full flex items-center justify-center gap-2 shadow-sm font-bold transition-all"
+                  className="w-full sm:w-auto min-h-[46px] bg-primary hover:bg-primary/90 text-white font-button text-xs uppercase px-6 py-3 rounded-xl sm:rounded-full flex items-center justify-center gap-2 shadow-sm font-bold active:scale-[0.98] transition-all"
                 >
                   <span className="material-symbols-outlined text-base">chat</span>
                   <span>WhatsApp 8002 8003 80</span>
@@ -571,7 +570,7 @@ export default function HomePage() {
 
                 <a
                   href="tel:8002800380"
-                  className="w-full sm:w-auto bg-white hover:bg-slate-100 text-slate-900 font-button text-xs uppercase px-5 py-3 rounded-full flex items-center justify-center gap-2 font-bold transition-all"
+                  className="w-full sm:w-auto min-h-[46px] bg-white hover:bg-slate-100 text-slate-900 font-button text-xs uppercase px-5 py-3 rounded-xl sm:rounded-full flex items-center justify-center gap-2 font-bold active:scale-[0.98] transition-all"
                 >
                   <span className="material-symbols-outlined text-primary text-base">phone</span>
                   <span>Call Hotline</span>
@@ -579,7 +578,7 @@ export default function HomePage() {
 
                 <Link
                   href="/branches"
-                  className="w-full sm:w-auto text-slate-300 hover:text-white text-xs uppercase font-semibold px-4 py-3 rounded-full flex items-center justify-center gap-1 transition-colors"
+                  className="w-full sm:w-auto min-h-[46px] text-slate-300 hover:text-white text-xs uppercase font-semibold px-4 py-3 rounded-xl sm:rounded-full flex items-center justify-center gap-1 transition-colors"
                 >
                   <span>Visit Labs</span>
                   <span className="material-symbols-outlined text-xs">arrow_forward</span>

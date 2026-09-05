@@ -216,14 +216,14 @@ export default function Navbar() {
       <header className="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30 md:hidden h-16 flex items-center justify-between px-4">
         <button
           onClick={() => setDrawerOpen(true)}
-          className="text-on-surface-variant hover:text-primary transition-colors p-1"
+          className="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container active:scale-95 transition-all"
           aria-label="Open menu"
         >
           <span className="material-symbols-outlined text-2xl">menu</span>
         </button>
         <Link
           href="/"
-          className="flex items-center"
+          className="flex items-center active:scale-95 transition-transform"
         >
           <Image
             src="/logo-cropped.png"
@@ -237,7 +237,7 @@ export default function Navbar() {
         </Link>
         <a
           href="tel:8002800380"
-          className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors"
+          className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary active:scale-95 transition-all shadow-xs"
           aria-label="Call us"
         >
           <span className="material-symbols-outlined text-lg">phone</span>
@@ -264,10 +264,10 @@ export default function Navbar() {
             <Image
               src="/logo-with-font.png"
               alt="Dronebhai Logo"
-              width={140}
-              height={40}
+              width={1767}
+              height={183}
               style={{ width: "auto" }}
-              className="h-8 w-auto object-contain"
+              className="h-7 w-auto max-w-[180px] object-contain"
             />
           </Link>
           <button

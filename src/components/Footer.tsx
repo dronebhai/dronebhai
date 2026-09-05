@@ -11,10 +11,11 @@ export default function Footer() {
             <Image
               src="/logo-with-font.png"
               alt="Dronebhai"
-              width={260}
-              height={80}
+              width={1767}
+              height={183}
               style={{ width: "auto" }}
-              className="h-16 sm:h-20 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+              className="h-7 sm:h-8 w-auto max-w-[170px] sm:max-w-[190px] object-contain transition-transform group-hover:scale-[1.02]"
+              priority
             />
           </Link>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xs mb-4">
@@ -108,18 +109,10 @@ export default function Footer() {
           </Link>
           <Link
             href="/sitemap"
-            className="text-xs sm:text-sm font-semibold text-primary hover:underline transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
-          >
-            HTML Sitemap
-          </Link>
-          <a
-            href="/sitemap.xml"
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-xs sm:text-sm text-slate-600 hover:text-primary transition-all duration-150 hover:translate-x-0.5 inline-block py-0.5"
           >
-            XML Sitemap
-          </a>
+            Sitemap Directory
+          </Link>
         </div>
 
         {/* Contact & Hotline */}

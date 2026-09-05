@@ -191,17 +191,17 @@ export default async function DjiServiceDetailPage({ params }: Props) {
               {subtitle}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3.5 w-full">
               <a
-                href="https://wa.me/918002800380"
+                href="https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20want%20to%20book%20a%20service"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary text-on-primary font-button text-button px-6 py-3 rounded uppercase flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all shadow-[0_4px_12px_rgba(0,150,136,0.2)]"
+                className="w-full sm:w-auto min-h-[46px] bg-primary text-on-primary font-button text-xs uppercase px-6 py-3 rounded-xl flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_4px_12px_rgba(0,150,136,0.2)] font-bold"
               >
-                <span className="material-symbols-outlined">build</span>
-                Book Service
+                <span className="material-symbols-outlined text-lg">build</span>
+                <span>Book Service via WhatsApp</span>
               </a>
-              <div className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-outline-variant text-on-surface-variant font-button text-button rounded">
+              <div className="w-full sm:w-auto min-h-[46px] flex items-center justify-center gap-2 px-6 py-3 border-2 border-outline-variant text-on-surface-variant font-button text-xs uppercase rounded-xl font-semibold">
                 <span>Est: {priceRange}</span>
               </div>
             </div>

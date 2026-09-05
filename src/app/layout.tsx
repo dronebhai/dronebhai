@@ -123,7 +123,7 @@ const rootStructuredData = {
       name: "Dronebhai",
       alternateName: ["Robuzta Techlabs", "Drone Bhai", "Dronebhai India"],
       url: "https://dronebhai.com",
-      logo: "https://dronebhai.com/logo.png",
+      logo: "https://dronebhai.com/logo-with-font.png",
       image: "https://dronebhai.com/images/hero-drone-flagship.jpg",
       description:
         "India's premier drone sales, custom drone manufacturing, and authorized DJI service & service center.",

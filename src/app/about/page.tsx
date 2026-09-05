@@ -144,9 +144,9 @@ export default function AboutPage() {
             </p>
             <Link
               href="/branches"
-              className="inline-flex items-center gap-2 bg-primary text-on-primary font-button text-button py-3 px-6 rounded uppercase hover:brightness-110 transition-all shadow-[0_4px_14px_rgba(0,150,136,0.3)]"
+              className="w-full sm:w-auto min-h-[46px] inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-button text-xs uppercase py-3.5 px-6 rounded-xl font-bold hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_4px_14px_rgba(0,150,136,0.3)]"
             >
-              Visit Our Labs
+              <span>Visit Our Labs</span>
               <span className="material-symbols-outlined text-sm">
                 arrow_forward
               </span>
@@ -241,9 +241,9 @@ export default function AboutPage() {
 
           <Link
             href="/dji-service"
-            className="relative z-10 bg-primary text-on-primary font-button text-button px-6 py-3 rounded hover:brightness-110 transition-all flex items-center gap-2 whitespace-nowrap shadow-[0_4px_14px_rgba(0,150,136,0.3)]"
+            className="relative z-10 w-full md:w-auto min-h-[46px] bg-primary text-on-primary font-button text-xs uppercase px-6 py-3.5 rounded-xl font-bold hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 whitespace-nowrap shadow-[0_4px_14px_rgba(0,150,136,0.3)]"
           >
-            Book Service
+            <span>Book Service</span>
             <span className="material-symbols-outlined text-sm">
               arrow_forward
             </span>
