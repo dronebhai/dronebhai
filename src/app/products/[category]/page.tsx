@@ -220,24 +220,28 @@ export default async function CategoryPage({ params }: Props) {
                 </p>
 
                 {/* Key Specs Pills */}
-                <div className="grid grid-cols-3 gap-2 mb-4 p-2.5 bg-surface-container-low rounded-xl border border-outline-variant/20">
-                  {product.specs.map((s, idx) => (
-                    <div key={idx} className="text-center">
-                      <span className="block text-[10px] text-slate-500 uppercase">{s.label}</span>
-                      <span className="block font-bold text-xs text-primary">{s.value}</span>
-                    </div>
-                  ))}
-                </div>
+                {product.specs && product.specs.length > 0 && (
+                  <div className="grid grid-cols-3 gap-2 mb-4 p-2.5 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                    {product.specs.map((s, idx) => (
+                      <div key={idx} className="text-center">
+                        <span className="block text-[10px] text-slate-500 uppercase">{s.label}</span>
+                        <span className="block font-bold text-xs text-primary">{s.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Highlights */}
-                <div className="mb-4 flex flex-wrap gap-1.5">
-                  {product.highlightFeatures.map((hf, i) => (
-                    <span key={i} className="text-[11px] bg-surface-container px-2 py-0.5 rounded text-slate-600 flex items-center gap-1">
-                      <span className="material-symbols-outlined text-xs text-primary">check</span>
-                      {hf}
-                    </span>
-                  ))}
-                </div>
+                {product.highlightFeatures && product.highlightFeatures.length > 0 && (
+                  <div className="mb-4 flex flex-wrap gap-1.5">
+                    {product.highlightFeatures.map((hf, i) => (
+                      <span key={i} className="text-[11px] bg-surface-container px-2 py-0.5 rounded text-slate-600 flex items-center gap-1">
+                        <span className="material-symbols-outlined text-xs text-primary">check</span>
+                        {hf}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {/* Action CTA */}
                 <div className="flex items-center gap-2 mt-auto pt-3 border-t border-outline-variant/20">
@@ -328,20 +332,22 @@ export default async function CategoryPage({ params }: Props) {
               </a>
             </div>
 
-            <div className="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30">
-              <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-primary text-base">inventory_2</span>
-                In-The-Box
-              </h4>
-              <ul className="space-y-1.5">
-                {cat.includedAccessories.map((acc, i) => (
-                  <li key={i} className="flex items-center gap-2 text-xs text-slate-600">
-                    <span className="material-symbols-outlined text-primary text-xs">check</span>
-                    <span>{acc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {cat.includedAccessories && cat.includedAccessories.length > 0 && (
+              <div className="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30">
+                <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-primary text-base">inventory_2</span>
+                  In-The-Box / Service Includes
+                </h4>
+                <ul className="space-y-1.5">
+                  {cat.includedAccessories.map((acc, i) => (
+                    <li key={i} className="flex items-center gap-2 text-xs text-slate-600">
+                      <span className="material-symbols-outlined text-primary text-xs">check</span>
+                      <span>{acc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
 
@@ -365,6 +371,36 @@ export default async function CategoryPage({ params }: Props) {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── Closing Callout Banner ─────────────────────────── */}
+        {cat.bottomBanner && (
+          <div className="mb-12 bg-primary/5 border border-primary/20 rounded-2xl p-6 sm:p-8 text-center max-w-3xl mx-auto shadow-xs">
+            <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">
+              {cat.bottomBanner.heading}
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto mb-5 leading-relaxed">
+              {cat.bottomBanner.description}
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href={`https://wa.me/918002800380?text=Hi%20Dronebhai,%20I%20want%20to%20enquire%20about%20${encodeURIComponent(cat.bottomBanner.heading)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary hover:bg-primary/90 text-white font-button text-xs uppercase py-2.5 px-5 rounded-lg flex items-center gap-1.5 font-bold transition-all shadow-sm"
+              >
+                <span className="material-symbols-outlined text-sm">chat</span>
+                <span>Get Expert Consultation</span>
+              </a>
+              <a
+                href="tel:8002800380"
+                className="border border-outline-variant/40 hover:border-primary text-primary font-button text-xs py-2.5 px-4 rounded-lg flex items-center gap-1 transition-colors font-medium bg-surface/80"
+              >
+                <span className="material-symbols-outlined text-sm">phone</span>
+                <span>Call: 8002 8003 80</span>
+              </a>
             </div>
           </div>
         )}
