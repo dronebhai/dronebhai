@@ -198,12 +198,16 @@ export default async function DjiServiceDetailPage({ params }: Props) {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto min-h-[46px] bg-primary text-on-primary font-button text-xs uppercase px-6 py-3 rounded-xl flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_4px_12px_rgba(0,150,136,0.2)] font-bold"
               >
-                <span className="material-symbols-outlined text-lg">build</span>
+                <span className="material-symbols-outlined text-lg">chat</span>
                 <span>Book Service via WhatsApp</span>
               </a>
-              <div className="w-full sm:w-auto min-h-[46px] flex items-center justify-center gap-2 px-6 py-3 border-2 border-outline-variant text-on-surface-variant font-button text-xs uppercase rounded-xl font-semibold">
-                <span>Est: {priceRange}</span>
-              </div>
+              <a
+                href="tel:8002800380"
+                className="w-full sm:w-auto min-h-[46px] flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary/40 text-primary hover:bg-primary/5 font-button text-xs uppercase rounded-xl font-bold bg-surface/80 transition-colors"
+              >
+                <span className="material-symbols-outlined text-lg">phone</span>
+                <span>Call 8002 8003 80</span>
+              </a>
             </div>
 
             <p className="text-sm text-on-surface-variant mt-4 flex items-center gap-2">

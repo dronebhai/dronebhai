@@ -2,6 +2,8 @@ export interface DjiModel {
   slug: string;
   label: string;
   series: string;
+  subtitle?: string;
+  tags?: string[];
 }
 
 export interface ServiceType {
@@ -26,27 +28,52 @@ export interface DjiServiceEntry {
 }
 
 /* ============================================================
-   MODELS
+   MODELS (Complete Model Matrix from Dji Service 3.md)
    ============================================================ */
 export const djiModels: DjiModel[] = [
-  // Priority models (full content matrix)
-  { slug: "mini-4-pro",          label: "DJI Mini 4 Pro",         series: "Mini" },
-  { slug: "mini-3-pro",          label: "DJI Mini 3 Pro",         series: "Mini" },
-  { slug: "mavic-3",             label: "DJI Mavic 3",            series: "Mavic" },
-  { slug: "air-3",               label: "DJI Air 3",              series: "Air" },
-  { slug: "air-2s",              label: "DJI Air 2S",             series: "Air" },
-  // Extended models
-  { slug: "mini-3",              label: "DJI Mini 3",             series: "Mini" },
-  { slug: "mini-2-se",           label: "DJI Mini 2 SE",          series: "Mini" },
-  { slug: "mavic-air-2",         label: "DJI Mavic Air 2",        series: "Mavic" },
-  { slug: "mavic-3-pro",         label: "DJI Mavic 3 Pro",        series: "Mavic" },
-  { slug: "mavic-3-classic",     label: "DJI Mavic 3 Classic",    series: "Mavic" },
-  { slug: "mavic-2-pro-zoom",    label: "DJI Mavic 2 Pro/Zoom",   series: "Mavic" },
-  { slug: "avata-2",             label: "DJI Avata 2",            series: "FPV" },
-  { slug: "avata",               label: "DJI Avata",              series: "FPV" },
-  { slug: "fpv",                 label: "DJI FPV",                series: "FPV" },
-  { slug: "phantom-4-pro",       label: "DJI Phantom 4 Pro",      series: "Phantom" },
-  { slug: "inspire-2",           label: "DJI Inspire 2",          series: "Inspire" },
+  // ── Mini Series ──
+  { slug: "mini-5-pro", label: "DJI Mini 5 Pro", series: "Mini", subtitle: "Compact flagship drone repair", tags: ["camera module", "gimbal calibration", "vision sensor"] },
+  { slug: "mini-4-pro", label: "DJI Mini 4 Pro", series: "Mini", subtitle: "Professional mini drone service", tags: ["omnidirectional sensing", "4K camera", "arm replacement repair"] },
+  { slug: "mini-3-pro", label: "DJI Mini 3 Pro", series: "Mini", subtitle: "Creator-focused drone support", tags: ["gimbal ribbon", "battery fault", "obstacle sensor"] },
+  { slug: "mini-3", label: "DJI Mini 3", series: "Mini", subtitle: "Lightweight aerial camera service", tags: ["camera focus", "motor diagnostics", "GPS calibration"] },
+  { slug: "mini-2-se", label: "DJI Mini 2 SE", series: "Mini", subtitle: "Reliable entry-level drone repair", tags: ["gimbal alignment", "propeller motor", "flight controller"] },
+  { slug: "mini-2", label: "DJI Mini 2", series: "Mini", subtitle: "Compact camera drone maintenance", tags: ["camera connector", "ESC diagnostics", "battery health"] },
+
+  // ── Neo Series ──
+  { slug: "neo", label: "DJI Neo", series: "Neo", subtitle: "Ultra-light personal drone support", tags: ["palm launch issues", "vision positioning", "propeller guard"] },
+  { slug: "neo-2", label: "DJI Neo 2", series: "Neo", subtitle: "Next-generation compact drone service", tags: ["tracking camera", "flight sensor", "power-board check"] },
+
+  // ── Air Series ──
+  { slug: "air-3", label: "DJI Air 3", series: "Air", subtitle: "Dual-camera aerial platform service", tags: ["dual-camera fault", "telephoto module", "gimbal motor"] },
+  { slug: "air-2s", label: "DJI Air 2S", series: "Air", subtitle: "1-inch sensor drone diagnostics", tags: ["1-inch sensor", "ND filter system", "IMU calibration"] },
+  { slug: "mavic-air-2", label: "DJI Mavic Air 2", series: "Air", subtitle: "Portable professional drone repair", tags: ["folding arm", "OcuSync link", "landing gear"] },
+
+  // ── Mavic Series ──
+  { slug: "mavic-3-pro", label: "DJI Mavic 3 Pro", series: "Mavic", subtitle: "Triple-camera flagship service", tags: ["Hasselblad camera", "telephoto camera", "gimbal axis"] },
+  { slug: "mavic-3-classic", label: "DJI Mavic 3 Classic", series: "Mavic", subtitle: "High-end imaging drone support", tags: ["camera vibration", "rear obstacle sensor", "gimbal yaw"] },
+  { slug: "mavic-3", label: "DJI Mavic 3", series: "Mavic", subtitle: "Advanced flight and camera service", tags: ["vision system", "RTK module", "flight-controller diagnostics"] },
+  { slug: "mavic-2-pro-zoom", label: "DJI Mavic 2 Pro / Zoom", series: "Mavic", subtitle: "Pro/Zoom legacy platform repair", tags: ["Hasselblad unit", "zoom camera", "gimbal flex cable"] },
+
+  // ── FPV & Avata Series ──
+  { slug: "avata-2", label: "DJI Avata 2", series: "FPV & Avata", subtitle: "Immersive FPV drone service", tags: ["duct frame", "FPV camera", "video link"] },
+  { slug: "avata", label: "DJI Avata", series: "FPV & Avata", subtitle: "Cinematic ducted FPV repair", tags: ["prop guard", "camera mount", "motor vibration"] },
+  { slug: "fpv", label: "DJI FPV", series: "FPV & Avata", subtitle: "High-speed FPV platform diagnostics", tags: ["front shell", "ESC board", "high-current motor"] },
+
+  // ── Phantom Series ──
+  { slug: "phantom-4-pro", label: "DJI Phantom 4 Pro", series: "Phantom", subtitle: "Professional legacy camera drone service", tags: ["mechanical shutter", "gimbal board", "GPS compass"] },
+
+  // ── Inspire Series ──
+  { slug: "inspire-2", label: "DJI Inspire 2", series: "Inspire", subtitle: "Professional cinema drone maintenance", tags: ["Zenmuse interface", "landing gear", "flight IMU"] },
+  { slug: "inspire-3", label: "DJI Inspire 3", series: "Inspire", subtitle: "Cinema-grade aerial platform support", tags: ["cinema camera link", "RTK positioning", "high-altitude diagnostics"] },
+
+  // ── Enterprise Series ──
+  { slug: "matrice-350-rtk", label: "DJI Matrice 350 RTK", series: "Enterprise", subtitle: "Enterprise inspection drone service", tags: ["RTK positioning", "payload interface", "dual-battery system"] },
+  { slug: "matrice-300-rtk", label: "DJI Matrice 300 RTK", series: "Enterprise", subtitle: "Industrial UAV maintenance", tags: ["payload port", "radar sensor", "airframe diagnostics"] },
+  { slug: "matrice-30t", label: "DJI Matrice 30T", series: "Enterprise", subtitle: "Thermal inspection drone repair", tags: ["thermal camera", "laser rangefinder", "arm hinge"] },
+
+  // ── Agricultural Series ──
+  { slug: "agras-t40", label: "DJI Agras T40", series: "Agricultural", subtitle: "High-capacity agriculture drone service", tags: ["spray pump", "spreading system", "radar module"] },
+  { slug: "agras-t30", label: "DJI Agras T30", series: "Agricultural", subtitle: "Precision crop-spraying drone support", tags: ["flow meter", "spray nozzle", "terrain radar"] },
 ];
 
 /* ============================================================

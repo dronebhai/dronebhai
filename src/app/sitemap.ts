@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { productCategories } from "@/lib/data/categories";
-import { getAllServiceCombinations } from "@/lib/data/dji-service";
+import { djiModels, getAllServiceCombinations } from "@/lib/data/dji-service";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://dronebhai.com";
@@ -72,14 +72,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // All DJI service service matrix combinations (e.g. mini-4-pro/gimbal-replacement)
+  // All 26 DJI Model specific landing pages
+  const modelRoutes: MetadataRoute.Sitemap = djiModels.map((m) => ({
+    url: `${baseUrl}/dji-service/${m.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+
+  // All DJI service matrix combinations
   const serviceCombinations = getAllServiceCombinations();
   const serviceRoutes: MetadataRoute.Sitemap = serviceCombinations.map((combo) => ({
     url: `${baseUrl}/dji-service/${combo.model}/${combo.serviceType}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...serviceRoutes];
+  return [...staticRoutes, ...categoryRoutes, ...modelRoutes, ...serviceRoutes];
 }
