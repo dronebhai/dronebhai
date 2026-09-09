@@ -21,15 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = getCategoryBySlug(category);
   if (!cat) return { title: "Not Found | Dronebhai" };
 
+  const title = cat.seoTitle || `${cat.label} — Buy, Custom Builds & Service | Dronebhai India`;
+  const description = cat.seoDescription || `${cat.description} Explore certified models, high-performance flight specs, genuine parts, and custom aerospace engineering.`;
+
   return {
-    title: `${cat.label} — Buy, Custom Builds & Service | Dronebhai India`,
-    description: `${cat.description} Explore certified models, high-performance flight specs, genuine parts, and custom aerospace engineering.`,
+    title,
+    description,
     alternates: {
       canonical: `/products/${cat.slug}`,
     },
     openGraph: {
-      title: `${cat.label} | Dronebhai Drone Store India`,
-      description: cat.description,
+      title,
+      description,
       url: `https://dronebhai.com/products/${cat.slug}`,
       siteName: "Dronebhai",
       images: [
@@ -41,8 +44,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${cat.label} | Dronebhai`,
-      description: cat.description,
+      title,
+      description,
       images: [cat.heroImageUrl],
     },
   };
