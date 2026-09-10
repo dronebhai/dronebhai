@@ -159,7 +159,7 @@ export default function HomePage() {
 
               {/* Tagline Narrative */}
               <p className="text-sm sm:text-base text-slate-600 mb-6 max-w-md leading-relaxed">
-                Meet the future of cinematic aerial exploration, bespoke industrial UAVs &amp; authorized DJI drone care.
+                Professional drone sales, expert DJI service, repairs, and custom UAV solutions — all under one roof.
               </p>
 
               {/* Actions Row: WhatsApp + Call */}

@@ -124,23 +124,19 @@ export default function AboutPage() {
           <div>
             <span className="font-eyebrow text-eyebrow text-primary uppercase tracking-widest block mb-6 flex items-center gap-3">
               <span className="h-px w-8 bg-primary" />
-              OUR STORY
+              ABOUT DRONEBHAI
             </span>
             <h1 className="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background mb-6">
-              India&apos;s Precision Drone Lab.
+              India&apos;s Trusted Drone Service Center.
             </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">
-              Founded in 2016 in Ahmedabad, Dronebhai has grown from a small
-              hobby workshop into India&apos;s most trusted drone service and retail
-              hub. We believe every pilot deserves access to expert care,
-              genuine parts, and honest advice.
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+              Founded in <strong>2016 in Ahmedabad</strong>, Dronebhai has grown from a small hobby drone workshop into a trusted destination for <strong>drone sales, repair, diagnostics, parts, customization, and professional aerial solutions</strong> across India.
             </p>
-            <p className="font-body-md text-body-md text-on-surface-variant mb-8">
-              Operating under Sanuma India Pvt. Ltd., we cover the full aerial
-              ecosystem — premium drone sales across 16 categories, custom
-              manufacturing for enterprise and defence clients, and an
-              authorised DJI certification center for services, diagnostics, and
-              maintenance.
+            <p className="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+              Operating under <strong>Sanuma India Pvt. Ltd.</strong>, we cover the complete drone ecosystem — from <strong>consumer and professional drone sales across 16 categories</strong> to <strong>custom-built UAV solutions for enterprise and defence applications</strong>.
+            </p>
+            <p className="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+              Our expertise goes beyond sales. As an <strong>authorised DJI certification and service center</strong>, we provide professional <strong>drone diagnostics, maintenance, repairs, calibration, and genuine parts support</strong>, helping pilots and businesses keep their drones performing reliably.
             </p>
             <Link
               href="/branches"
@@ -182,6 +178,22 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* ── Built on Expertise. Driven by Precision. ────────── */}
+      <section className="py-14 md:py-18 px-gutter max-w-5xl mx-auto text-center border-b border-outline-variant/30">
+        <span className="font-eyebrow text-eyebrow text-primary uppercase block mb-3">
+          Our Philosophy
+        </span>
+        <h2 className="font-headline-md text-headline-md text-on-background mb-6 font-bold">
+          Built on Expertise. Driven by Precision.
+        </h2>
+        <p className="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+          At Dronebhai, our focus is simple: <strong>the right drone, the right solution, and the right technical support</strong>. Whether you&apos;re a first-time pilot, professional aerial photographer, enterprise operator, or an organisation looking for a customised UAV solution, our team provides <strong>expert guidance, genuine products, transparent service, and dependable after-sales support</strong>.
+        </p>
+        <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          From <strong>drone purchase and repair to precision servicing and advanced UAV development</strong>, Dronebhai is building a reliable drone ecosystem from Ahmedabad for customers across India.
+        </p>
       </section>
 
       {/* ── Values / What We Stand For ────────────────────── */}
